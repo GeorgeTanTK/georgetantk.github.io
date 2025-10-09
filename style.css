@@ -139,18 +139,11 @@
   }
   
   .wechat-bubble {
-    display: flex;
-    align-items: center;
-    background-color: #07c160; /* WeChat green */
+    background: #07c160;;
     padding: 0.9em 1.3em;
     border-radius: 16px;
     color: white;
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 600;
-    box-shadow: 0 4px 12px rgba(7,193,96,0.4);
-    user-select: text;
-  }
-  .wechat-text {
-    font-size: 1rem;
+    text-decoration: none;
+    display: inline-block;
   }
   
