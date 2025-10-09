@@ -1,14 +1,102 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>George T. Tan - Personal Links</title>
+  <meta charset="UTF-8">
+  <title> George Tan | Vector DB </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>My Personal Links</h1>
-  <ul>
-    <li><a href="https://twitter.com/yourhandle">Twitter</a></li>
-    <li><a href="https://linkedin.com/in/yourprofile">LinkedIn</a></li>
-    <li><a href="https://yourproject.com">Project Site</a></li>
-  </ul>
+  <nav>
+    <a href="#links">Links</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="hero">
+    <img src="portrait.jpg" alt="Professional Portrait" class="portrait">
+    <h1>George Tan 陳柢光</h1>
+    <p>
+      Database Management System (Vector Database) <br>
+      Software Development | IT Business Analyst
+
+    </p>
+    <a href="#contact"><button class="cta-btn">Get in Touch</button></a>
+  </div>
+  <section id="links">
+    <h2>Links</h2>
+    <div class="links-list" id="links-list"></div>
+  </section>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Thank you for visiting my page. My name is George, and I am passionate about creating systems that enhance everyday life, simplify challenges, and contribute to a more efficient future. <br>
+      <br>
+      I am currently pursuing an MPhil in Computer Science at The Hong Kong University of Science and Technology, with a research focus on Vector Databases. In addition to my studies, I serve as a Graduate Teaching Assistant for various computing courses, primarily focusing on the Design and Analysis of Algorithms.<br>
+      <br>
+      Beyond my academic pursuits, I hold the position of Business Development Director at Wellplan Management & Consultant (MM2H) Sdn Bhd, Wellplan Education Sdn Bhd, and Techno Moments Sdn Bhd. In this role, I assist small and medium enterprises (SMEs) in expanding and transforming their operations in the age of artificial intelligence.<br>
+      <br>
+      I completed my undergraduate studies at the same university, where I participated in several consulting projects, including a corporate consulting initiative with ARUP Aviation Hong Kong. Our team proposed the use of Advanced Air Mobility (AAM) to enhance connectivity between airports in the Greater Bay Area, driving the development of an airport cluster.<br>
+      <br>
+      Additionally, I gained valuable experience as a Software Developer Intern at Manulife Investment and Management, where I contributed to the modernization of a legacy system, focusing on data migration and the implementation of a contemporary tech stack.<br>
+      <br>
+      I welcome any opportunities for collaboration or discussion. Please feel free to reach out.
+    </p>
+  </section>
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-methods">
+      <a class="contact-link whatsapp" href="https://wa.me/85252099890" target="_blank" rel="noopener">
+        WhatsApp (Hong Kong)
+      </a>
+      <a class="contact-link whatsapp" href="https://wa.me/60125176356" target="_blank" rel="noopener">
+        WhatsApp (Malaysia)
+      </a>
+      <div class="contact-item email">
+        Email: georgetktan@gmail.com
+      </div>
+    </div>
+  </section>
+  
+  
+
+
+  <script>
+    const linksData = [
+      { title: "LinkedIn",desc:"", url: "https://www.linkedin.com/in/georgetktan/", img: "https://cdn-icons-png.flaticon.com/512/174/174857.png" },
+      { title: "MM2H", desc: "Malaysia My Second Home", url: "https://wellplan.com.my/my-second-home-program-mm2h/", img: "Agenis-Pekerjaan-Cosmoten.jpg" },
+      { title: "Wyndham Semporna Resort",desc:"", url: "https://www.wyndhamsempornarealestate.com/", img: "WR_Wyndham-Semporna_fullGold_RGB-01.png" }
+    ];
+    const linksList = document.getElementById('links-list');
+    linksData.forEach(link => {
+      const bubble = document.createElement("a");
+      bubble.className = 'link-bubble';
+      bubble.href = link.url;
+      bubble.target = "_blank";
+      bubble.rel = "noopener noreferrer";
+      bubble.innerHTML = `<img src="${link.img}" class="link-img" alt="${link.title}">
+        <div class="link-title">${link.title}</div>
+        <div class="link-desc">${link.desc}</div>`;
+      linksList.appendChild(bubble);
+    });
+    window.addEventListener('scroll', function() {
+      document.querySelectorAll('section').forEach(function(sec){
+        const rect = sec.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 60){
+          sec.classList.add('visible');
+        }
+      });
+    });
+    document.querySelectorAll('section').forEach(function(sec){ sec.classList.add('visible'); });
+    document.querySelectorAll('nav a').forEach(function(link){
+      link.addEventListener('click', function(e){
+        const href = link.getAttribute('href');
+        if(href.startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if(target) target.scrollIntoView({behavior: 'smooth'});
+        }
+      });
+    });
+  </script>
 </body>
 </html>
