@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LBBC Blind Tasting Checklist</title>
+    <style>
+:root {
+  --color-white: rgba(255,255,255,1);
+  --color-cream-50: rgba(252,252,249,1);
+  --color-cream-100: rgba(255,255,253,1);
+  --color-gray-200: rgba(245,245,245,1);
+  --color-gray-300: rgba(167,169,169,1);
+  --color-gray-400: rgba(119,124,124,1);
+  --color-slate-500: rgba(98,108,113,1);
+  --color-brown-600: rgba(94,82,64,1);
+  --color-charcoal-700: rgba(31,33,33,1);
+  --color-charcoal-800: rgba(38,40,40,1);
+  --color-slate-900: rgba(19,52,59,1);
+  --color-teal-300: rgba(50,184,198,1);
+  --color-teal-500: rgba(33,128,141,1);
+  --color-teal-600: rgba(29,116,128,1);
+  --color-teal-700: rgba(26,104,115,1);
+  --color-red-400: rgba(255,84,89,1);
+  --color-red-500: rgba(192,21,47,1);
+  --color-orange-400: rgba(230,129,97,1);
+  --color-orange-500: rgba(168,75,47,1);
+  --color-brown-600-rgb: 94,82,64;
+  --color-teal-500-rgb: 33,128,141;
+  --color-slate-900-rgb: 19,52,59;
+  --color-gray-400-rgb: 119,124,124;
+  --color-teal-300-rgb: 50,184,198;
+  --color-gray-300-rgb: 167,169,169;
+  --color-gray-200-rgb: 245,245,245;
+  --color-background: var(--color-cream-50);
+  --color-surface: var(--color-cream-100);
+  --color-text: var(--color-slate-900);
+  --color-text-secondary: var(--color-slate-500);
+  --color-primary: var(--color-teal-500);
+  --color-primary-hover: var(--color-teal-600);
+  --color-border: rgba(var(--color-brown-600-rgb),0.2);
+  --color-card-border: rgba(var(--color-brown-600-rgb),0.12);
+  --color-btn-primary-text: var(--color-cream-50);
+  --color-secondary: rgba(var(--color-brown-600-rgb),0.12);
+  --color-secondary-hover: rgba(var(--color-brown-600-rgb),0.2);
+  --font-family-base: "FKGroteskNeue","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --radius-sm: 6px;
+  --radius-base: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04),0 1px 2px rgba(0,0,0,0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.04),0 2px 4px -1px rgba(0,0,0,0.02);
+  --space-4: 4px; --space-6: 6px; --space-8: 8px; --space-10: 10px;
+  --space-12: 12px; --space-16: 16px; --space-20: 20px; --space-24: 24px; --space-32: 32px;
+  --wine-red: #722F37; --wine-red-light: #8B3A44; --wine-gold: #C8A951;
+  --wine-gold-light: #D4B96A; --wine-dark: #2C1215; --wine-cream: #F5F0E8;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--color-charcoal-700);
+    --color-surface: var(--color-charcoal-800);
+    --color-text: var(--color-gray-200);
+    --color-text-secondary: rgba(var(--color-gray-300-rgb),0.7);
+    --color-primary: var(--color-teal-300);
+    --color-border: rgba(var(--color-gray-400-rgb),0.3);
+    --color-card-border: rgba(var(--color-gray-400-rgb),0.2);
+    --color-btn-primary-text: var(--color-slate-900);
+    --color-secondary: rgba(var(--color-gray-400-rgb),0.15);
+    --wine-cream: #1a1a1a;
+  }
+}
+@font-face { font-family:'FKGroteskNeue'; src:url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2') format('woff2'); }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { font-size: 14px; font-family: var(--font-family-base); color: var(--color-text); background: var(--color-background); -webkit-font-smoothing: antialiased; }
+body { margin: 0; padding: 0; }
+
+.app { max-width: 480px; margin: 0 auto; padding: var(--space-16); min-height: 100vh; }
+
+.header { text-align: center; margin-bottom: var(--space-24); padding: var(--space-20) 0; border-bottom: 2px solid var(--wine-red); }
+.header h1 { font-size: 22px; font-weight: 600; color: var(--wine-red); margin: 0 0 var(--space-4); letter-spacing: -0.02em; }
+.header p { font-size: 12px; color: var(--color-text-secondary); margin: 0; }
+
+.nav { display: flex; gap: var(--space-4); margin-bottom: var(--space-20); flex-wrap: wrap; justify-content: center; }
+.nav-btn { padding: var(--space-6) var(--space-12); border-radius: var(--radius-full); font-size: 11px; font-weight: 500; border: 1px solid var(--color-border); background: var(--color-surface); color: var(--color-text-secondary); cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+.nav-btn:hover { background: var(--color-secondary-hover); }
+.nav-btn.active { background: var(--wine-red); color: white; border-color: var(--wine-red); }
+
+.section { display: none; }
+.section.active { display: block; }
+
+.step { background: var(--color-surface); border: 1px solid var(--color-card-border); border-radius: var(--radius-lg); padding: var(--space-16); margin-bottom: var(--space-12); box-shadow: var(--shadow-sm); }
+.step-num { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: var(--wine-red); color: white; font-size: 12px; font-weight: 600; margin-right: var(--space-8); flex-shrink: 0; }
+.step-header { display: flex; align-items: center; margin-bottom: var(--space-8); }
+.step-title { font-size: 14px; font-weight: 600; }
+.step-body { padding-left: 32px; font-size: 13px; line-height: 1.6; color: var(--color-text-secondary); }
+
+.check-item { display: flex; align-items: flex-start; gap: var(--space-8); padding: var(--space-6) 0; cursor: pointer; }
+.check-item:hover { color: var(--color-text); }
+.check-box { width: 18px; height: 18px; border: 2px solid var(--color-border); border-radius: var(--radius-sm); flex-shrink: 0; margin-top: 1px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; font-size: 11px; }
+.check-item.checked .check-box { background: var(--wine-red); border-color: var(--wine-red); color: white; }
+.check-label { font-size: 13px; line-height: 1.4; }
+
+.decision { background: rgba(114,47,55,0.06); border: 1px solid rgba(114,47,55,0.15); border-radius: var(--radius-base); padding: var(--space-12); margin: var(--space-8) 0; font-size: 13px; }
+.decision strong { color: var(--wine-red); }
+
+.arrow { color: var(--wine-red); font-weight: 600; margin: 0 var(--space-4); }
+.tag { display: inline-block; padding: 2px 8px; border-radius: var(--radius-full); font-size: 11px; font-weight: 500; margin: 2px; }
+.tag-aoc { background: rgba(114,47,55,0.1); color: var(--wine-red); }
+.tag-vintage { background: rgba(200,169,81,0.15); color: #8B6914; }
+.tag-note { background: var(--color-secondary); color: var(--color-text-secondary); }
+
+.divider { border: none; border-top: 1px dashed var(--color-border); margin: var(--space-16) 0; }
+
+.tip { font-size: 12px; color: var(--color-text-secondary); font-style: italic; padding: var(--space-8) var(--space-12); background: var(--color-secondary); border-radius: var(--radius-base); margin-top: var(--space-8); }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); }
+.mini-card { background: var(--color-surface); border: 1px solid var(--color-card-border); border-radius: var(--radius-base); padding: var(--space-10); }
+.mini-card h4 { font-size: 12px; font-weight: 600; margin: 0 0 var(--space-4); color: var(--wine-red); }
+.mini-card p { font-size: 11px; margin: 0; color: var(--color-text-secondary); line-height: 1.4; }
+
+.table-wrap { overflow-x: auto; margin: var(--space-8) 0; }
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+th { text-align: left; padding: var(--space-6) var(--space-8); background: var(--color-secondary); font-weight: 600; border-bottom: 2px solid var(--color-border); white-space: nowrap; }
+td { padding: var(--space-6) var(--space-8); border-bottom: 1px solid var(--color-card-border); }
+tr:hover td { background: var(--color-secondary); }
+
+.subtitle { font-size: 16px; font-weight: 600; margin: var(--space-20) 0 var(--space-12); color: var(--wine-red); }
+
+@media (prefers-color-scheme: dark) {
+  .decision { background: rgba(200,169,81,0.08); border-color: rgba(200,169,81,0.2); }
+  .tag-aoc { background: rgba(200,169,81,0.15); color: var(--wine-gold-light); }
+  .tag-vintage { background: rgba(200,169,81,0.1); color: var(--wine-gold-light); }
+}
+    </style>
+</head>
+<body>
+<div class="app">
+    <div class="header">
+        <h1>🍷 LBBC Blind Tasting Checklist</h1>
+        <p>Your personal mental flowchart for competition day</p>
+    </div>
+
+    <nav class="nav">
+        <button class="nav-btn active" onclick="showSection('red-aoc')">Red: AOC</button>
+        <button class="nav-btn" onclick="showSection('red-vintage')">Red: Vintage</button>
+        <button class="nav-btn" onclick="showSection('sweet')">Sweet Wines</button>
+        <button class="nav-btn" onclick="showSection('tertiary')">Tertiary Check</button>
+        <button class="nav-btn" onclick="showSection('producers')">Producer Tells</button>
+        <button class="nav-btn" onclick="showSection('traps')">Trap Wines</button>
+    </nav>
+
+    <!-- RED AOC SECTION -->
+    <div id="red-aoc" class="section active">
+        <div class="subtitle">Red Wine — Identify AOC First</div>
+
+        <div class="step">
+            <div class="step-header"><span class="step-num">1</span><span class="step-title">First Nose (2 seconds)</span></div>
+            <div class="step-body">
+                <div class="decision">Do you smell <strong>"kolapis"</strong> (mineral / iodine / saline / metallic)?</div>
+                <div style="margin-top:8px;">
+                    <strong>YES →</strong> Go to Step 2<br>
+                    <strong>NO →</strong> Skip to Step 3
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header"><span class="step-num">2</span><span class="step-title">Kolapis Detected — Which Type?</span></div>
+            <div class="step-body">
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label"><strong>Flowery + perfumy + red fruit?</strong><br><span class="arrow">→</span> <span class="tag tag-aoc">MARGAUX</span></div>
+                </div>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label"><strong>Smoky + flinty + warm earth?</strong><br><span class="arrow">→</span> <span class="tag tag-aoc">PESSAC-LÉOGNAN</span></div>
+                </div>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label"><strong>Graphite + cedar + powerful tannin?</strong><br><span class="arrow">→</span> <span class="tag tag-aoc">PAUILLAC</span></div>
+                </div>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label"><strong>None of the above? Sip it — watery/dilute on palate?</strong><br><span class="arrow">→</span> <span class="tag tag-aoc">HAUT-MÉDOC</span></div>
+                </div>
+                <div class="tip">💡 If kolapis but can't differentiate: check tannin — muscular/fine = Pauillac, rustic/coarse = Haut-Médoc, smooth/earthy = Pessac</div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header"><span class="step-num">3</span><span class="step-title">No Kolapis — St-Julien or St-Estèphe?</span></div>
+            <div class="step-body">
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label"><strong>Red + black fruit, balanced, harmonious, "everything fits"?</strong><br>Tannin feels <em>warm/integrated</em><br><span class="arrow">→</span> <span class="tag tag-aoc">ST-JULIEN</span></div>
+                </div>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label"><strong>Black fruit, austere, reserved, stern?</strong><br>Tannin feels <em>COLD/gripping</em><br><span class="arrow">→</span> <span class="tag tag-aoc">ST-ESTÈPHE</span></div>
+                </div>
+                <div class="tip">💡 The KEY: tannin temperature. St-Estèphe = cold. St-Julien = warm. Ask yourself: does this feel stern or harmonious?</div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header"><span class="step-num">4</span><span class="step-title">Confirm on Palate</span></div>
+            <div class="step-body">
+                <div class="table-wrap">
+                <table>
+                    <tr><th>AOC</th><th>Palate Confirmation</th></tr>
+                    <tr><td><span class="tag tag-aoc">Margaux</span></td><td>Lightest body, silky tannin, perfume persists</td></tr>
+                    <tr><td><span class="tag tag-aoc">Pauillac</span></td><td>Powerful, full body, cassis, long graphite finish</td></tr>
+                    <tr><td><span class="tag tag-aoc">St-Julien</span></td><td>Medium-full, balanced, neither extreme</td></tr>
+                    <tr><td><span class="tag tag-aoc">St-Estèphe</span></td><td>Firm, cold tannin, saline edge, needs time</td></tr>
+                    <tr><td><span class="tag tag-aoc">Pessac</span></td><td>Smooth tannin, warm/earthy, tobacco, moderate body</td></tr>
+                    <tr><td><span class="tag tag-aoc">Haut-Médoc</span></td><td>Dilute mid-palate, less concentration, variable</td></tr>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RED VINTAGE SECTION -->
+    <div id="red-vintage" class="section">
+        <div class="subtitle">Red Wine — Identify Vintage (After AOC)</div>
+
+        <div class="step">
+            <div class="step-header"><span class="step-num">1</span><span class="step-title">Is It a Weak or Strong Vintage?</span></div>
+            <div class="step-body">
+                <div class="decision">First impression: is there <strong>green / herbaceous / hollow</strong> character?</div>
+                <div style="margin-top:8px;">
+                    <strong>YES → Weak cluster</strong> (Step 2)<br>
+                    <strong>NO → Good-to-great cluster</strong> (Step 3)
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header"><span class="step-num">2</span><span class="step-title">Weak Vintage — Which One?</span></div>
+            <div class="step-body">
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label"><strong>Very green + watery + NO fruit at all?</strong><br><span class="arrow">→</span> <span class="tag tag-vintage">2013</span> (worst modern vintage)</div>
+                </div>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label"><strong>Green tannin but SOME black fruit pushing through?</strong><br><span class="arrow">→</span> <span class="tag tag-vintage">2011</span> (underripe, not empty)</div>
+                </div>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label"><strong>Fresh, herbal, PEPPERY / STALKY, lean?</strong><br><span class="arrow">→</span> <span class="tag tag-vintage">2017</span> (frost year — lean not hollow)</div>
+                </div>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label"><strong>Herbaceous + rough tannin but not totally hollow?</strong><br><span class="arrow">→</span> <span class="tag tag-vintage">2012</span> (mediocre, not terrible)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header"><span class="step-num">3</span><span class="step-title">Good-to-Great Vintage — Which One?</span></div>
+            <div class="step-body">
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label"><strong>DUSTY / monumental / iron-fist tannin?</strong><br><span class="arrow">→</span> <span class="tag tag-vintage">2010</span></div>
+                </div>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label"><strong>RIPE / soft / round tannin + fleshy fruit?</strong><br><span class="arrow">→</span> <span class="tag tag-vintage">2009</span></div>
+                </div>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label"><strong>MUSCULAR tannin + floral lift + silky?</strong><br><span class="arrow">→</span> <span class="tag tag-vintage">2016</span> (hunt for florals!)</div>
+                </div>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label"><strong>JUICY + peppery + generous fruit?</strong><br><span class="arrow">→</span> <span class="tag tag-vintage">2015</span></div>
+                </div>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label"><strong>JAMMY + high tannin + hot/overripe feeling?</strong><br><span class="arrow">→</span> <span class="tag tag-vintage">2020</span> or <span class="tag tag-vintage">2018</span></div>
+                </div>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label"><strong>CIGAR / tobacco + fresh fruit + structured?</strong><br><span class="arrow">→</span> <span class="tag tag-vintage">2014</span> (Indian summer)</div>
+                </div>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label"><strong>EARTHY / mitti + moderate tannin + long finish?</strong><br><span class="arrow">→</span> <span class="tag tag-vintage">2008</span> (classic claret)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header"><span class="step-num">4</span><span class="step-title">Hardest Calls — Differentiators</span></div>
+            <div class="step-body">
+                <div class="grid-2">
+                    <div class="mini-card">
+                        <h4>2015 vs 2016</h4>
+                        <p><strong>2015:</strong> Juicy, generous, peppery, fruit-forward<br><strong>2016:</strong> More structured, tannin frame dominates, FLORAL LIFT beneath</p>
+                    </div>
+                    <div class="mini-card">
+                        <h4>2011 vs 2017</h4>
+                        <p><strong>2011:</strong> Green tannin + some black fruit trying to emerge<br><strong>2017:</strong> Peppery/stalky specifically, feels LEAN + FRESH not just green</p>
+                    </div>
+                    <div class="mini-card">
+                        <h4>2009 vs 2010</h4>
+                        <p><strong>2009:</strong> Soft, round, hedonistic, fleshy pleasure<br><strong>2010:</strong> Dusty, monumental, iron-fist power, more angular</p>
+                    </div>
+                    <div class="mini-card">
+                        <h4>2008 vs 2014</h4>
+                        <p><strong>2008:</strong> Mitti/earthy, salty, red fruit, classic feel<br><strong>2014:</strong> Cigar/tobacco, fresh fruit, structured (Indian summer)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SWEET WINES SECTION -->
+    <div id="sweet" class="section">
+        <div class="subtitle">Sweet Wine — Identify AOC</div>
+
+        <div class="step">
+            <div class="step-header"><span class="step-num">1</span><span class="step-title">First Nose — What Dominates?</span></div>
+            <div class="step-body">
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label"><strong>LEMON / CITRUS / SOUR dominant?</strong><br><span class="arrow">→</span> Likely <span class="tag tag-aoc">BARSAC</span></div>
+                </div>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label"><strong>RAISIN / HONEY / SWEET dominant?</strong><br><span class="arrow">→</span> Likely <span class="tag tag-aoc">SAUTERNES</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header"><span class="step-num">2</span><span class="step-title">Confirm on Palate (CRITICAL for traps)</span></div>
+            <div class="step-body">
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label"><strong>High acidity + LIGHTER body + LINEAR finish?</strong><br><span class="arrow">→</span> <span class="tag tag-aoc">BARSAC</span> ✅ (even if nose smelled rich)</div>
+                </div>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label"><strong>Viscous / STICKY + HEAVIER body + ROUND finish?</strong><br><span class="arrow">→</span> <span class="tag tag-aoc">SAUTERNES</span> ✅ (even if nose had citrus)</div>
+                </div>
+                <div class="tip">💡 GOLDEN RULE: When nose and palate disagree, TRUST THE PALATE for AOC. The nose can mislead (Climens!), the palate rarely lies.</div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header"><span class="step-num">3</span><span class="step-title">Sweet Wine Vintage Signals</span></div>
+            <div class="step-body">
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label"><strong>Rich, dense, oaky, long finish?</strong><br><span class="arrow">→</span> <span class="tag tag-vintage">Great botrytis year</span> (2010, 2015, 2016)</div>
+                </div>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label"><strong>Fresh, fruity, lighter, honey?</strong><br><span class="arrow">→</span> <span class="tag tag-vintage">Decent year</span> or younger wine</div>
+                </div>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label"><strong>High sour, watery, short finish?</strong><br><span class="arrow">→</span> <span class="tag tag-vintage">Weak botrytis</span> (2012, 2017)</div>
+                </div>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label"><strong>Oaky, bitter, not much fruit?</strong><br><span class="arrow">→</span> <span class="tag tag-vintage">Failed/marginal</span> (2002, 2003)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TERTIARY CHECK SECTION -->
+    <div id="tertiary" class="section">
+        <div class="subtitle">Tertiary Notes — Age Detector</div>
+
+        <div class="step">
+            <div class="step-header"><span class="step-num">1</span><span class="step-title">3-Layer Nose Check (Do This in Order)</span></div>
+            <div class="step-body">
+                <p style="margin:0 0 8px;"><strong>Pass 1 — Primary (fruit):</strong></p>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label">Fresh red/black fruit? Flowers? Fresh herbs? → <span class="tag tag-note">YOUNG</span></div>
+                </div>
+
+                <hr class="divider">
+
+                <p style="margin:0 0 8px;"><strong>Pass 2 — Secondary (winemaking):</strong></p>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label">Vanilla? Toast? Chocolate? Coffee? Coconut? → <span class="tag tag-note">OAK INFLUENCE</span></div>
+                </div>
+
+                <hr class="divider">
+
+                <p style="margin:0 0 8px;"><strong>Pass 3 — Tertiary (age): IGNORE FRUIT, hunt for:</strong></p>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label">Dried fruit (prune, fig, dried cherry)?</div>
+                </div>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label">Earthy (forest floor, mushroom, mitti, wet leaves)?</div>
+                </div>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label">Old wood (cigar box, cedar chest, old library)?</div>
+                </div>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label">Savoury (leather, cured meat, game, broth)?</div>
+                </div>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label">Spicy (tobacco leaf, black tea, dried herbs)?</div>
+                </div>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label">Oxidative hints (soy, balsamic, nuts)?</div>
+                </div>
+
+                <div class="decision" style="margin-top:12px;">
+                    <strong>If ≥2 tertiary boxes checked →</strong> Wine is likely <span class="tag tag-vintage">pre-2012</span><br>
+                    <strong>If 0-1 tertiary boxes →</strong> Wine is likely <span class="tag tag-vintage">2013 or later</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header"><span class="step-num">2</span><span class="step-title">Sweet Wine Tertiary Markers</span></div>
+            <div class="step-body">
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label">Dried apricot, candied orange, marmalade, quince paste?</div>
+                </div>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label">Nutty: almond, hazelnut, walnut, praline?</div>
+                </div>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label">Caramelised: toffee, crème brûlée, butterscotch?</div>
+                </div>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label">Waxy: beeswax, lanolin, honeycomb?</div>
+                </div>
+                <div class="check-item" onclick="toggle(this)">
+                    <div class="check-box"></div>
+                    <div class="check-label">Evolved botrytis: gingerbread, barley sugar, saffron, curry spice?</div>
+                </div>
+                <div class="tip">💡 On palate: aged sweet wines feel less overtly sugary, more savoury-nutty, and texture becomes oily/waxy rather than just sticky</div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header"><span class="step-num">3</span><span class="step-title">Track Evolution (5-10 min)</span></div>
+            <div class="step-body">
+                <div class="table-wrap">
+                <table>
+                    <tr><th>What Happens</th><th>Meaning</th></tr>
+                    <tr><td>Primary fades → leather/earth/tobacco</td><td>Aged / mature wine</td></tr>
+                    <tr><td>Tight nose opens → floral/perfume</td><td>Young fine wine needing time</td></tr>
+                    <tr><td>Green burns off → fruit emerges</td><td>Decent vintage, good terroir</td></tr>
+                    <tr><td>Nothing changes</td><td>Simple wine / weak vintage</td></tr>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRODUCER TELLS SECTION -->
+    <div id="producers" class="section">
+        <div class="subtitle">Producer Signatures You've Identified</div>
+
+        <div class="step">
+            <div class="step-header"><span class="step-num">🔴</span><span class="step-title">Red Wine Producers</span></div>
+            <div class="step-body">
+                <div class="table-wrap">
+                <table>
+                    <tr><th>Château</th><th>AOC</th><th>Your Tell</th></tr>
+                    <tr><td><strong>Lafon-Rochet</strong></td><td>St-Estèphe</td><td>Unusually high oak — "the oaky St-Estèphe"</td></tr>
+                    <tr><td><strong>Haut-Batailley</strong></td><td>Pauillac</td><td>Bitterness + graphite/cedar emerge after airing</td></tr>
+                    <tr><td><strong>Malescot St-Ex</strong></td><td>Margaux</td><td>Flowery perfumy in EVERY vintage — most Margaux of all</td></tr>
+                    <tr><td><strong>Giscours</strong></td><td>Margaux</td><td>Mineral/masculine — "the St-Estèphe of Margaux"</td></tr>
+                    <tr><td><strong>Poujeaux</strong></td><td>Haut-Médoc</td><td>Real concentration — the overachiever</td></tr>
+                    <tr><td><strong>Gloria</strong></td><td>St-Julien</td><td>Cedar + pepper + mitti, punches above weight</td></tr>
+                    <tr><td><strong>Gruaud Larose</strong></td><td>St-Julien</td><td>Masculine St-Julien, no mineral, rustic tannin</td></tr>
+                    <tr><td><strong>Pichon-Lalande</strong></td><td>Pauillac</td><td>High Merlot (~35%) — "the feminine Pauillac"</td></tr>
+                    <tr><td><strong>Palmer</strong></td><td>Margaux</td><td>~50% Merlot — Right-Bank-like roundness</td></tr>
+                </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header"><span class="step-num">🟡</span><span class="step-title">Sweet Wine Producers</span></div>
+            <div class="step-body">
+                <div class="table-wrap">
+                <table>
+                    <tr><th>Château</th><th>AOC</th><th>Your Tell</th></tr>
+                    <tr><td><strong>Coutet</strong></td><td>Barsac</td><td>"Classic honey smell" — the honeyed Barsac</td></tr>
+                    <tr><td><strong>Doisy-Daëne</strong></td><td>Barsac</td><td>Most citrus-driven — "lemon tea"</td></tr>
+                    <tr><td><strong>Climens</strong></td><td>Barsac</td><td>⚠️ "Barsac that smells like Sauternes" (100% Sémillon)</td></tr>
+                    <tr><td><strong>Rieussec</strong></td><td>Sauternes</td><td>Most powerful — sticky throat, overwhelming sweet</td></tr>
+                    <tr><td><strong>Suduiraut</strong></td><td>Sauternes</td><td>Strong raisin + smoky — "the raisin Sauternes"</td></tr>
+                    <tr><td><strong>Guiraud</strong></td><td>Sauternes</td><td>⚠️ Oaky/smoky — unusual for Sauternes (organic)</td></tr>
+                    <tr><td><strong>Clos Haut-Peyr.</strong></td><td>Sauternes</td><td>Alcohol burn on finish — giveaway</td></tr>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TRAP WINES SECTION -->
+    <div id="traps" class="section">
+        <div class="subtitle">⚠️ Trap Wines — Don't Get Caught</div>
+
+        <div class="step">
+            <div class="step-header"><span class="step-num">!</span><span class="step-title">Climens — Barsac Disguised as Sauternes</span></div>
+            <div class="step-body">
+                <p style="margin:0 0 8px;"><strong>What happens:</strong> Nose smells rich, honeyed, powerful — like Sauternes</p>
+                <p style="margin:0 0 8px;"><strong>Why:</strong> 100% Sémillon (only estate in Barsac) → extra richness on nose</p>
+                <div class="decision"><strong>Your anchor:</strong> Smells like Sauternes but finishes <strong>sour/fresh on swallow</strong> → BARSAC (Climens)<br><em>You noted this yourself: "sour and fresh when swallow"</em></div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header"><span class="step-num">!</span><span class="step-title">Guiraud — Smoky Sauternes (Like Climens?)</span></div>
+            <div class="step-body">
+                <p style="margin:0 0 8px;"><strong>What happens:</strong> Oaky, smoky character — you wrote "comparable with Climens"</p>
+                <p style="margin:0 0 8px;"><strong>Why:</strong> Organic estate with distinctive winemaking style</p>
+                <div class="decision"><strong>Your anchor:</strong> Smoky BUT <strong>rich and viscous</strong> on palate → SAUTERNES (Guiraud)<br><em>You noted: "dry fruit, more ripeness and richness"</em></div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header"><span class="step-num">!</span><span class="step-title">Giscours — Margaux That Isn't Margaux-like</span></div>
+            <div class="step-body">
+                <p style="margin:0 0 8px;"><strong>What happens:</strong> Mineral, masculine, no perfume — feels like St-Estèphe</p>
+                <p style="margin:0 0 8px;"><strong>Why:</strong> Southernmost Margaux, heavier soils than typical appellation</p>
+                <div class="decision"><strong>Your anchor:</strong> If a "Margaux" has no flowers but has kolapis/mineral → think Giscours</div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header"><span class="step-num">!</span><span class="step-title">Palmer — Left Bank With Right Bank Character</span></div>
+            <div class="step-body">
+                <p style="margin:0 0 8px;"><strong>What happens:</strong> Rounder, softer, more Merlot-driven than expected for Margaux</p>
+                <p style="margin:0 0 8px;"><strong>Why:</strong> ~50% Merlot — uniquely high for classified Left Bank</p>
+                <div class="decision"><strong>Your anchor:</strong> If a Margaux feels unusually round/fleshy → think Palmer</div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header"><span class="step-num">!</span><span class="step-title">Haut-Médoc Pretending to be a Commune</span></div>
+            <div class="step-body">
+                <p style="margin:0 0 8px;"><strong>What happens:</strong> Nose seems decent — black fruit, some structure</p>
+                <p style="margin:0 0 8px;"><strong>But:</strong> Palate falls apart — watery mid-palate, lacks concentration</p>
+                <div class="decision"><strong>Your anchor:</strong> You PROVED this works — every HM wine you tasted felt "watery" on the palate. Trust that instinct.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function showSection(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggle(el) {
+    el.classList.toggle('checked');
+    const box = el.querySelector('.check-box');
+    box.textContent = el.classList.contains('checked') ? '✓' : '';
+}
+</script>
+</body>
+</html>
