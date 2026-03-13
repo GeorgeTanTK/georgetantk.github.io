@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LBBC Study Quiz — 155 Questions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300..700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root, [data-theme="light"] {
+  --color-bg: #faf9f6;
+  --color-surface: #ffffff;
+  --color-surface-2: #f5f3ef;
+  --color-surface-offset: #edeae5;
+  --color-divider: #dcd9d5;
+  --color-border: #d4d1ca;
+  --color-text: #2b2520;
+  --color-text-muted: #7a7974;
+  --color-text-faint: #bab9b4;
+  --color-primary: #722f37;
+  --color-primary-hover: #5a252c;
+  --color-primary-active: #3f1a1f;
+  --color-primary-light: #f3e8ea;
+  --color-success: #2d6a30;
+  --color-success-bg: #e8f5e9;
+  --color-error: #a12c2c;
+  --color-error-bg: #fde8e8;
+  --color-gold: #b8860b;
+  --color-gold-bg: #fdf6e3;
+  --shadow-sm: 0 1px 3px rgba(43,37,32,0.06);
+  --shadow-md: 0 4px 16px rgba(43,37,32,0.08);
+  --shadow-lg: 0 8px 32px rgba(43,37,32,0.12);
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'DM Sans', 'Helvetica Neue', sans-serif;
+  --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+  --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+  --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+  --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+  --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
+  --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem;
+  --space-12: 3rem; --space-16: 4rem; --space-20: 5rem;
+  --radius-sm: 0.375rem; --radius-md: 0.5rem; --radius-lg: 0.75rem; --radius-xl: 1rem;
+  --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="dark"] {
+  --color-bg: #1a1816;
+  --color-surface: #222019;
+  --color-surface-2: #2a2822;
+  --color-surface-offset: #1e1c1a;
+  --color-divider: #333130;
+  --color-border: #3d3b38;
+  --color-text: #e8e6e1;
+  --color-text-muted: #9a9894;
+  --color-text-faint: #5a5957;
+  --color-primary: #c9777e;
+  --color-primary-hover: #d4949a;
+  --color-primary-active: #a85860;
+  --color-primary-light: #3a2528;
+  --color-success: #6daa45;
+  --color-success-bg: #2a3a25;
+  --color-error: #dd6974;
+  --color-error-bg: #3a2528;
+  --color-gold: #e8af34;
+  --color-gold-bg: #3a3020;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.25);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.35);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg: #1a1816;
+    --color-surface: #222019;
+    --color-surface-2: #2a2822;
+    --color-surface-offset: #1e1c1a;
+    --color-divider: #333130;
+    --color-border: #3d3b38;
+    --color-text: #e8e6e1;
+    --color-text-muted: #9a9894;
+    --color-text-faint: #5a5957;
+    --color-primary: #c9777e;
+    --color-primary-hover: #d4949a;
+    --color-primary-active: #a85860;
+    --color-primary-light: #3a2528;
+    --color-success: #6daa45;
+    --color-success-bg: #2a3a25;
+    --color-error: #dd6974;
+    --color-error-bg: #3a2528;
+    --color-gold: #e8af34;
+    --color-gold-bg: #3a3020;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.2);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.25);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.35);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--space-16);
+}
+
+body {
+  min-height: 100dvh;
+  line-height: 1.6;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0; }
+
+/* LAYOUT */
+.container { max-width: 800px; margin: 0 auto; padding: 0 var(--space-4); }
+
+header {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-divider);
+  padding: var(--space-3) 0;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+header .container {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-4);
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  color: var(--color-primary);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.logo span { color: var(--color-text-muted); font-size: var(--text-sm); font-family: var(--font-body); }
+
+.theme-toggle {
+  width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-full, 9999px); cursor: pointer; background: none; border: none;
+  color: var(--color-text-muted);
+  transition: color var(--transition), background var(--transition);
+}
+.theme-toggle:hover { background: var(--color-surface-2); color: var(--color-text); }
+
+/* HERO / START SCREEN */
+.hero {
+  text-align: center;
+  padding: var(--space-20) 0 var(--space-12);
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  line-height: 1.1;
+  margin-bottom: var(--space-4);
+  color: var(--color-text);
+}
+
+.hero p {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  max-width: 50ch;
+  margin: 0 auto var(--space-8);
+}
+
+.badge {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  border-radius: var(--radius-full, 9999px);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  margin-bottom: var(--space-6);
+}
+
+/* FILTER SECTION */
+.filters {
+  display: flex; flex-wrap: wrap; gap: var(--space-2); justify-content: center;
+  margin-bottom: var(--space-8);
+}
+
+.filter-btn {
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full, 9999px);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+
+.filter-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.filter-btn.active {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+/* START BTN */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  padding: var(--space-3) var(--space-8);
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-full, 9999px);
+  font-size: var(--text-base);
+  font-weight: 500;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: all var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-hover);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active { background: var(--color-primary-active); transform: translateY(0); }
+
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  padding: var(--space-2) var(--space-6);
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full, 9999px);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: all var(--transition);
+}
+
+.btn-secondary:hover { background: var(--color-surface-2); border-color: var(--color-primary); }
+
+/* QUIZ SCREEN */
+.quiz-screen { display: none; padding: var(--space-8) 0 var(--space-16); }
+.quiz-screen.active { display: block; }
+
+.progress-bar {
+  width: 100%; height: 6px;
+  background: var(--color-surface-offset);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: var(--space-6);
+}
+
+.progress-bar .fill {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: 3px;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.quiz-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap; gap: var(--space-2);
+}
+
+.quiz-header .q-count {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.quiz-header .block-label {
+  font-size: var(--text-xs);
+  padding: var(--space-1) var(--space-3);
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  border-radius: var(--radius-full, 9999px);
+  font-weight: 500;
+}
+
+.question-text {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  line-height: 1.3;
+  margin-bottom: var(--space-6);
+}
+
+/* OPTIONS */
+.options { display: flex; flex-direction: column; gap: var(--space-3); margin-bottom: var(--space-6); }
+
+.option {
+  display: flex; align-items: flex-start; gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  font-size: var(--text-base);
+  transition: all var(--transition);
+  position: relative;
+  min-height: 52px;
+}
+
+.option:hover:not(.disabled) {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+  transform: translateX(4px);
+}
+
+.option .letter {
+  flex-shrink: 0;
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-2);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  transition: all var(--transition);
+}
+
+.option:hover:not(.disabled) .letter {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.option.correct {
+  border-color: var(--color-success);
+  background: var(--color-success-bg);
+}
+
+.option.correct .letter {
+  background: var(--color-success);
+  color: #fff;
+}
+
+.option.wrong {
+  border-color: var(--color-error);
+  background: var(--color-error-bg);
+}
+
+.option.wrong .letter {
+  background: var(--color-error);
+  color: #fff;
+}
+
+.option.disabled { cursor: default; }
+
+.option.reveal-correct {
+  border-color: var(--color-success);
+  background: var(--color-success-bg);
+}
+.option.reveal-correct .letter {
+  background: var(--color-success);
+  color: #fff;
+}
+
+/* NOTE */
+.note-box {
+  display: none;
+  padding: var(--space-4);
+  background: var(--color-gold-bg);
+  border-left: 3px solid var(--color-gold);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  margin-bottom: var(--space-6);
+  line-height: 1.6;
+  animation: slideIn 0.3s ease;
+}
+
+.note-box.visible { display: block; }
+
+.note-box .note-label {
+  font-weight: 600;
+  color: var(--color-gold);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-1);
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* NAV BUTTONS */
+.quiz-nav {
+  display: flex; justify-content: space-between; align-items: center; gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+/* RESULTS SCREEN */
+.results-screen { display: none; padding: var(--space-12) 0 var(--space-16); text-align: center; }
+.results-screen.active { display: block; }
+
+.results-score {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--color-primary);
+  margin-bottom: var(--space-4);
+}
+
+.results-detail {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-8);
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
+  gap: var(--space-2);
+  max-width: 600px;
+  margin: 0 auto var(--space-8);
+}
+
+.results-dot {
+  width: 44px; height: 44px;
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+  border: none;
+}
+
+.results-dot:hover { transform: scale(1.1); }
+
+.results-dot.correct {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+}
+
+.results-dot.wrong {
+  background: var(--color-error-bg);
+  color: var(--color-error);
+}
+
+.results-dot.skipped {
+  background: var(--color-surface-offset);
+  color: var(--color-text-faint);
+}
+
+.results-actions {
+  display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;
+}
+
+/* STATS BAR */
+.stats-bar {
+  display: flex; gap: var(--space-8); justify-content: center;
+  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--color-text);
+}
+
+.stat-label {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* REVIEW MODE */
+.review-info {
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-gold-bg);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  color: var(--color-gold);
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: var(--space-6);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: var(--space-8) 0;
+  color: var(--color-text-faint);
+  font-size: var(--text-xs);
+  border-top: 1px solid var(--color-divider);
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .hero { padding: var(--space-12) 0 var(--space-8); }
+  .question-text { font-size: var(--text-lg); }
+  .option { padding: var(--space-3) var(--space-4); }
+  .filters { gap: var(--space-1); }
+  .filter-btn { padding: var(--space-1) var(--space-3); font-size: var(--text-xs); }
+  .results-grid { grid-template-columns: repeat(auto-fill, minmax(36px, 1fr)); }
+  .results-dot { width: 36px; height: 36px; }
+}
+
+/* KEYBOARD HINTS */
+.kbd {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 22px; height: 22px;
+  padding: 0 var(--space-1);
+  background: var(--color-surface-offset);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-size: 11px;
+  font-family: var(--font-body);
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.keyboard-hint {
+  display: flex; gap: var(--space-4); justify-content: center;
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+  margin-top: var(--space-4);
+}
+
+.keyboard-hint span {
+  display: flex; align-items: center; gap: var(--space-1);
+}
+
+@media (max-width: 600px) {
+  .keyboard-hint { display: none; }
+}
+
+/* FACT CHECK BADGE */
+.fact-check {
+  display: inline-flex; align-items: center; gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  background: var(--color-error-bg);
+  color: var(--color-error);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  margin-left: var(--space-2);
+}
+
+.shuffle-toggle {
+  display: flex; align-items: center; gap: var(--space-2);
+  font-size: var(--text-sm); color: var(--color-text-muted);
+  cursor: pointer; user-select: none;
+}
+
+.shuffle-toggle input { accent-color: var(--color-primary); width: 16px; height: 16px; }
+
+/* Level tag */
+.level-tag {
+  font-size: var(--text-xs);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+}
+.level-tag.qual { background: #e8f0fe; color: #1a56db; }
+.level-tag.final { background: #fde8e8; color: #a12c2c; }
+
+[data-theme="dark"] .level-tag.qual { background: #1e2a40; color: #7aadff; }
+[data-theme="dark"] .level-tag.final { background: #3a2528; color: #dd6974; }
+</style>
+</head>
+<body>
+
+<header>
+<div class="container">
+  <div class="logo">LBBC Quiz <span>· 155 Questions</span></div>
+  <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
+    <i data-lucide="sun" style="width:20px;height:20px;"></i>
+  </button>
+</div>
+</header>
+
+<!-- START SCREEN -->
+<section id="startScreen" class="container">
+<div class="hero">
+  <div class="badge">🍷 Left Bank Bordeaux Cup 2026</div>
+  <h1>155 Questions.<br>One Quiz to Rule Them All.</h1>
+  <p>All multiple-choice questions from the LBBC Comprehensive Study Pack — Qualification Round + Final Round. Fact-checked against authoritative sources.</p>
+
+  <div style="margin-bottom:var(--space-6);">
+    <p style="font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-3);">Filter by level:</p>
+    <div class="filters" id="levelFilters">
+      <button class="filter-btn active" data-filter="all">All (155)</button>
+      <button class="filter-btn" data-filter="Qualification">Qualification (75)</button>
+      <button class="filter-btn" data-filter="Final">Final Round (80)</button>
+    </div>
+  </div>
+
+  <div style="margin-bottom:var(--space-6);">
+    <p style="font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-3);">Filter by topic:</p>
+    <div class="filters" id="topicFilters">
+      <button class="filter-btn active" data-filter="all">All Topics</button>
+    </div>
+  </div>
+
+  <div style="margin-bottom:var(--space-8);">
+    <label class="shuffle-toggle">
+      <input type="checkbox" id="shuffleToggle"> Shuffle question order
+    </label>
+  </div>
+
+  <button class="btn-primary" id="startBtn">
+    <i data-lucide="play" style="width:18px;height:18px;"></i>
+    Start Quiz
+  </button>
+  <p id="qCount" style="margin-top:var(--space-3);font-size:var(--text-sm);color:var(--color-text-muted);"></p>
+</div>
+</section>
+
+<!-- QUIZ SCREEN -->
+<section id="quizScreen" class="quiz-screen container">
+  <div class="progress-bar"><div class="fill" id="progressFill"></div></div>
+
+  <div class="quiz-header">
+    <span class="q-count" id="qLabel">Question 1 of 155</span>
+    <div style="display:flex;gap:var(--space-2);align-items:center;">
+      <span class="level-tag" id="levelTag"></span>
+      <span class="block-label" id="blockLabel"></span>
+    </div>
+  </div>
+
+  <div id="reviewInfo" class="review-info" style="display:none;">
+    📖 Review Mode — Reviewing your incorrect answers
+  </div>
+
+  <h2 class="question-text" id="questionText"></h2>
+
+  <div class="options" id="optionsContainer"></div>
+
+  <div class="note-box" id="noteBox">
+    <div class="note-label">📝 Study Note</div>
+    <div id="noteText"></div>
+  </div>
+
+  <div class="quiz-nav">
+    <button class="btn-secondary" id="prevBtn"><i data-lucide="arrow-left" style="width:16px;height:16px;"></i> Previous</button>
+    <span class="q-count" id="scoreDisplay" style="font-weight:600;"></span>
+    <button class="btn-primary" id="nextBtn">Next <i data-lucide="arrow-right" style="width:16px;height:16px;"></i></button>
+  </div>
+
+  <div class="keyboard-hint">
+    <span><span class="kbd">A</span><span class="kbd">B</span><span class="kbd">C</span><span class="kbd">D</span> Select</span>
+    <span><span class="kbd">→</span> Next</span>
+    <span><span class="kbd">←</span> Previous</span>
+  </div>
+</section>
+
+<!-- RESULTS SCREEN -->
+<section id="resultsScreen" class="results-screen container">
+  <div class="badge">Quiz Complete!</div>
+  <div class="results-score" id="finalScore"></div>
+  <div class="results-detail" id="finalDetail"></div>
+
+  <div class="stats-bar">
+    <div class="stat"><div class="stat-value" id="statCorrect">0</div><div class="stat-label">Correct</div></div>
+    <div class="stat"><div class="stat-value" id="statWrong">0</div><div class="stat-label">Wrong</div></div>
+    <div class="stat"><div class="stat-value" id="statSkipped">0</div><div class="stat-label">Skipped</div></div>
+    <div class="stat"><div class="stat-value" id="statPct">0%</div><div class="stat-label">Accuracy</div></div>
+  </div>
+
+  <p style="font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-4);">Click a question number to review:</p>
+  <div class="results-grid" id="resultsGrid"></div>
+
+  <div class="results-actions">
+    <button class="btn-secondary" id="reviewWrongBtn"><i data-lucide="rotate-ccw" style="width:16px;height:16px;"></i> Review Wrong Answers</button>
+    <button class="btn-primary" id="restartBtn"><i data-lucide="refresh-cw" style="width:16px;height:16px;"></i> Start Over</button>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    LBBC Study Quiz 2026 · Questions from the Comprehensive Study Pack · Fact-checked March 2026
+  </div>
+</footer>
+
+<script>
+const ALL_QUESTIONS = [{"id": 1, "block": "Competition & Commanderie", "level": "Qualification", "q": "In what year was the Left Bank Bordeaux Cup first organised?", "options": ["1999", "2002", "2005", "2010"], "answer": 1, "note": ""}, {"id": 2, "block": "Competition & Commanderie", "level": "Qualification", "q": "What was the original name of the competition before 2012?", "options": ["Coupe du Médoc", "Grand Prix de Bordeaux", "Vingt sur Vin (20 sur Vin)", "Trophée des Crus Classés"], "answer": 2, "note": ""}, {"id": 3, "block": "Competition & Commanderie", "level": "Qualification", "q": "Who is the current Grand Maître of the Commanderie du Bontemps?", "options": ["Jean-Michel Cazes", "Henri Martin", "Baron Eric de Rothschild", "Emmanuel Cruse"], "answer": 3, "note": ""}, {"id": 4, "block": "Competition & Commanderie", "level": "Qualification", "q": "What is the bontemps traditionally used for in winemaking?", "options": ["Measuring barrel capacity", "Whisking egg whites for fining", "Stirring lees during bâtonnage", "Sampling wine from barrels"], "answer": 1, "note": ""}, {"id": 5, "block": "Competition & Commanderie", "level": "Qualification", "q": "What colour robe do sweet wine producers wear in the Commanderie?", "options": ["Scarlet (red)", "Purple", "Gold", "White"], "answer": 2, "note": ""}, {"id": 6, "block": "Competition & Commanderie", "level": "Qualification", "q": "In what year was the Commanderie du Bontemps formally re-established?", "options": ["1936", "1945", "1949", "1955"], "answer": 2, "note": ""}, {"id": 7, "block": "Competition & Commanderie", "level": "Qualification", "q": "How many theory questions are in each round of the LBBC Final?", "options": ["5", "10", "15", "20"], "answer": 1, "note": ""}, {"id": 8, "block": "Competition & Commanderie", "level": "Qualification", "q": "Which event celebrates the flowering of the vine?", "options": ["Ban des Vendanges", "Saint-Vincent's Day", "Fête de la Fleur", "Fête des Vendanges"], "answer": 2, "note": ""}, {"id": 9, "block": "Competition & Commanderie", "level": "Qualification", "q": "Who was the first Honorary Commandeur, inducted on 20 April 1950?", "options": ["Charles de Gaulle", "Vincent Auriol", "Napoleon III", "Jacques Chirac"], "answer": 1, "note": ""}, {"id": 10, "block": "Competition & Commanderie", "level": "Qualification", "q": "How many teams compete in the LBBC grand final?", "options": ["4", "6", "8", "12"], "answer": 2, "note": "2 teams per zone × 5 zones = 10 qualify, but only 8 advance to the Final."}, {"id": 11, "block": "1855 Classification", "level": "Qualification", "q": "How many châteaux are in the 1855 Médoc classification (current total)?", "options": ["58", "60", "61", "64"], "answer": 2, "note": "Originally 58, now 61 through estate splits."}, {"id": 12, "block": "1855 Classification", "level": "Qualification", "q": "Which is the only non-Médoc estate in the 1855 red wine classification?", "options": ["Ch. La Mission Haut-Brion", "Ch. Smith Haut Lafitte", "Ch. Haut-Brion", "Ch. Pape Clément"], "answer": 2, "note": "Haut-Brion is in Pessac (Graves)."}, {"id": 13, "block": "1855 Classification", "level": "Qualification", "q": "In what year was Mouton Rothschild elevated to Premier Cru?", "options": ["1855", "1953", "1959", "1973"], "answer": 3, "note": "The ONLY official change to the 1855 red wine classification."}, {"id": 14, "block": "1855 Classification", "level": "Qualification", "q": "Who signed the decree elevating Mouton Rothschild?", "options": ["François Mitterrand", "Jacques Chirac (as Minister of Agriculture)", "Charles de Gaulle", "Valéry Giscard d'Estaing"], "answer": 1, "note": "Chirac was Minister of Agriculture at the time, NOT yet President."}, {"id": 15, "block": "1855 Classification", "level": "Qualification", "q": "What was Baron Philippe de Rothschild's original defiant motto for Mouton?", "options": ["Premier je suis, second je fus, Mouton ne change", "Premier ne puis, second ne daigne, Mouton suis", "Mouton toujours premier", "Ni premier ni second, Mouton est unique"], "answer": 1, "note": "After reclassification in 1973, the motto changed to 'Premier je suis, second je fus, Mouton ne change'."}, {"id": 16, "block": "1855 Classification", "level": "Qualification", "q": "How many Fifth Growths are there in the 1855 classification?", "options": ["10", "14", "16", "18"], "answer": 3, "note": "5+14+14+10+18 = 61 total."}, {"id": 17, "block": "1855 Classification", "level": "Qualification", "q": "Which château was added to the 1855 classification in 1856?", "options": ["Ch. Lynch-Bages", "Ch. Cantemerle", "Ch. Palmer", "Ch. Pontet-Canet"], "answer": 1, "note": "Originally omitted because it sold primarily to Holland."}, {"id": 18, "block": "1855 Classification", "level": "Qualification", "q": "What criteria did the 1855 brokers primarily use for ranking?", "options": ["Blind tasting scores", "Vineyard size", "Average selling price over 40 years (1815–1855)", "Soil analysis"], "answer": 2, "note": ""}, {"id": 19, "block": "1855 Classification", "level": "Qualification", "q": "How many Second Growths are in the 1855 Médoc classification?", "options": ["10", "12", "14", "16"], "answer": 2, "note": ""}, {"id": 20, "block": "1855 Classification", "level": "Qualification", "q": "Which commune has the most 1855-classified châteaux?", "options": ["Pauillac", "Margaux", "Saint-Julien", "Saint-Estèphe"], "answer": 1, "note": "Margaux has 21, Pauillac has 18."}, {"id": 21, "block": "Graves & Sauternes", "level": "Qualification", "q": "How many châteaux are classified in the Graves classification?", "options": ["12", "14", "16", "20"], "answer": 2, "note": "16 châteaux, 23 classified wines."}, {"id": 22, "block": "Graves & Sauternes", "level": "Qualification", "q": "Which Graves estate is NOT classified for white wine?", "options": ["Ch. Carbonnieux", "Ch. de Fieuzal", "Ch. Malartic-Lagravière", "Ch. Olivier"], "answer": 1, "note": "Major exam trap — Fieuzal produces white wine but only the red is classified."}, {"id": 23, "block": "Graves & Sauternes", "level": "Qualification", "q": "What is unique about Château d'Yquem's position in the 1855 Sauternes classification?", "options": ["It is a Deuxième Cru", "It is one of eleven Premiers Crus", "It is the sole Premier Cru Supérieur", "It is unclassified"], "answer": 2, "note": ""}, {"id": 24, "block": "Graves & Sauternes", "level": "Qualification", "q": "Which river creates the morning mist essential for noble rot in Sauternes?", "options": ["Garonne", "Dordogne", "Gironde", "Ciron"], "answer": 3, "note": "Cold Ciron + warm Garonne = morning mist = Botrytis."}, {"id": 25, "block": "Graves & Sauternes", "level": "Qualification", "q": "What is the maximum permitted yield in Sauternes AOC?", "options": ["15 hl/ha", "25 hl/ha", "35 hl/ha", "45 hl/ha"], "answer": 1, "note": "d'Yquem typically produces only ~9 hl/ha."}, {"id": 26, "block": "Graves & Sauternes", "level": "Qualification", "q": "What is the lucky number for sweet wines of Bordeaux?", "options": ["3", "5", "7", "9"], "answer": 2, "note": ""}, {"id": 27, "block": "Graves & Sauternes", "level": "Qualification", "q": "In the Graves classification, how many estates are classified for BOTH red and white?", "options": ["3", "6", "9", "12"], "answer": 1, "note": ""}, {"id": 28, "block": "Graves & Sauternes", "level": "Qualification", "q": "Which Sauternes châteaux are known for having Muscadelle parcels?", "options": ["d'Yquem, Climens, Suduiraut", "d'Yquem, Doisy-Védrines, Clos Haut-Peyraguey", "Guiraud, Rieussec, La Tour Blanche", "Coutet, Climens, Naïrac"], "answer": 1, "note": ""}, {"id": 29, "block": "Graves & Sauternes", "level": "Qualification", "q": "Barsac wines may legally be labelled as which appellation?", "options": ["Barsac only", "Barsac or Sauternes", "Sauternes only", "Graves Supérieures"], "answer": 1, "note": "Unique dual labelling privilege."}, {"id": 30, "block": "Graves & Sauternes", "level": "Qualification", "q": "When was the Graves classification last revised?", "options": ["1953", "1959", "1973", "1987"], "answer": 1, "note": "Reds classified 1953, whites added 1959 — not revised since."}, {"id": 31, "block": "Geography & AOCs", "level": "Qualification", "q": "Which Médoc commune has the deepest gravel soils (up to 10 metres)?", "options": ["Margaux", "Saint-Julien", "Pauillac", "Saint-Estèphe"], "answer": 2, "note": ""}, {"id": 32, "block": "Geography & AOCs", "level": "Qualification", "q": "What is the highest elevation in the Médoc, and which commune is it in?", "options": ["30 m, Pauillac", "43 m, Listrac-Médoc", "50 m, Moulis", "25 m, Saint-Estèphe"], "answer": 1, "note": ""}, {"id": 33, "block": "Geography & AOCs", "level": "Qualification", "q": "Which is the only Médoc communal AOC where Merlot is the dominant variety?", "options": ["Saint-Estèphe", "Moulis-en-Médoc", "Listrac-Médoc", "Margaux"], "answer": 2, "note": ""}, {"id": 34, "block": "Geography & AOCs", "level": "Qualification", "q": "What is the smallest communal AOC in the Médoc by vineyard area?", "options": ["Saint-Julien", "Moulis-en-Médoc", "Listrac-Médoc", "Pauillac"], "answer": 1, "note": "~600–633 ha."}, {"id": 35, "block": "Geography & AOCs", "level": "Qualification", "q": "When was the Pessac-Léognan AOC established?", "options": ["1936", "1959", "1973", "1987"], "answer": 3, "note": "September 9, 1987 — youngest AOC, oldest vineyard area."}, {"id": 36, "block": "Geography & AOCs", "level": "Qualification", "q": "Who led the campaign to create the Pessac-Léognan AOC?", "options": ["Baron Philippe de Rothschild", "André Lurton", "Jean-Michel Cazes", "Emmanuel Cruse"], "answer": 1, "note": ""}, {"id": 37, "block": "Geography & AOCs", "level": "Qualification", "q": "How many communes does the Margaux appellation cover?", "options": ["3", "5", "7", "1"], "answer": 1, "note": "Margaux, Cantenac, Soussans, Arsac, Labarde."}, {"id": 38, "block": "Geography & AOCs", "level": "Qualification", "q": "Which commune has the most Crus Bourgeois (35)?", "options": ["Pauillac", "Margaux", "Haut-Médoc", "Saint-Estèphe"], "answer": 3, "note": ""}, {"id": 39, "block": "Geography & AOCs", "level": "Qualification", "q": "What drained the Médoc marshlands in the 17th century?", "options": ["French engineers", "Dutch engineers", "Roman engineers", "Monks"], "answer": 1, "note": ""}, {"id": 40, "block": "Geography & AOCs", "level": "Qualification", "q": "Which three châteaux have a boat on their label?", "options": ["Lafite, Latour, Margaux", "Duhart-Milon, Malartic-Lagravière, Beychevelle", "Palmer, d'Issan, Giscours", "Cos d'Estournel, Montrose, Calon-Ségur"], "answer": 1, "note": ""}, {"id": 41, "block": "Winemaking", "level": "Qualification", "q": "What is the standard capacity of a barrique bordelaise?", "options": ["200 litres", "225 litres", "250 litres", "300 litres"], "answer": 1, "note": "Burgundy barrel (pièce) = 228 litres — common exam trap."}, {"id": 42, "block": "Winemaking", "level": "Qualification", "q": "Which First Growth uses ONLY wood fermentation vats (no stainless steel)?", "options": ["Ch. Lafite Rothschild", "Ch. Latour", "Ch. Mouton Rothschild", "Ch. Haut-Brion"], "answer": 2, "note": ""}, {"id": 43, "block": "Winemaking", "level": "Qualification", "q": "Which was the first Bordeaux estate to adopt stainless steel tanks?", "options": ["Ch. Latour", "Ch. Lafite Rothschild", "Ch. Haut-Brion", "Ch. Palmer"], "answer": 2, "note": "First in Bordeaux in 1961."}, {"id": 44, "block": "Winemaking", "level": "Qualification", "q": "How many egg whites are typically used per barrel for fining?", "options": ["1–2", "4–6", "8–10", "12–15"], "answer": 1, "note": "Whisked in the bontemps bowl."}, {"id": 45, "block": "Winemaking", "level": "Qualification", "q": "What is the typical temperature range for red wine fermentation in Bordeaux?", "options": ["16–18°C", "20–24°C", "25–32°C", "33–38°C"], "answer": 2, "note": "White wine fermentation: 16–18°C."}, {"id": 46, "block": "Winemaking", "level": "Qualification", "q": "What is the name of the second wine of Château Haut-Brion?", "options": ["Bahans Haut-Brion", "Le Clarence de Haut-Brion", "La Chapelle de Haut-Brion", "Petit Haut-Brion"], "answer": 1, "note": "Formerly 'Bahans Haut-Brion' until 2007."}, {"id": 47, "block": "Winemaking", "level": "Qualification", "q": "Approximately how long does d'Yquem age its wine in new oak barrels?", "options": ["12 months", "18 months", "24 months", "30 months"], "answer": 3, "note": "100% new French oak, 30 months."}, {"id": 48, "block": "Winemaking", "level": "Qualification", "q": "What commission does a Bordeaux courtier (broker) earn on a transaction?", "options": ["1%", "2%", "5%", "10%"], "answer": 1, "note": "Known as 'Monsieur 2%'."}, {"id": 49, "block": "Winemaking", "level": "Qualification", "q": "Which First Growth ceased offering wine en primeur after the 2012 vintage?", "options": ["Ch. Lafite Rothschild", "Ch. Latour", "Ch. Mouton Rothschild", "Ch. Margaux"], "answer": 1, "note": "Last en primeur offering was 2011 vintage."}, {"id": 50, "block": "Winemaking", "level": "Qualification", "q": "What does 'bâtonnage' refer to?", "options": ["Blending different grape varieties", "Stirring lees in barrel", "Racking wine between barrels", "Fining with egg whites"], "answer": 1, "note": ""}, {"id": 51, "block": "Grape Varieties", "level": "Qualification", "q": "Which red Bordeaux variety has the highest skin-to-flesh ratio?", "options": ["Cabernet Sauvignon", "Merlot", "Petit Verdot", "Cabernet Franc"], "answer": 2, "note": "PV > CS > Malbec > CF ~ Merlot > Sémillon."}, {"id": 52, "block": "Grape Varieties", "level": "Qualification", "q": "Why is Sémillon ideal for noble rot?", "options": ["Thick skin allows slow penetration", "Very thin skin allows easy Botrytis penetration", "High sugar content", "Late ripening"], "answer": 1, "note": ""}, {"id": 53, "block": "Grape Varieties", "level": "Qualification", "q": "Which grape became the signature variety of Chile after being misidentified as Merlot?", "options": ["Malbec", "Petit Verdot", "Carmenère", "Cabernet Franc"], "answer": 2, "note": "DNA testing confirmed in 1994."}, {"id": 54, "block": "Grape Varieties", "level": "Qualification", "q": "What aromatic character does Cabernet Franc contribute to Left Bank blends?", "options": ["Blackcurrant and cedar", "Plum and chocolate", "Violet, pencil, and raspberry", "Blackberry and pepper"], "answer": 2, "note": ""}, {"id": 55, "block": "Grape Varieties", "level": "Qualification", "q": "Approximately what percentage of Merlot does Château Palmer use in its blend?", "options": ["10–15%", "25–30%", "~47%", "60–70%"], "answer": 2, "note": "Unusual for a Margaux estate."}, {"id": 56, "block": "Grape Varieties", "level": "Qualification", "q": "Muscadelle is related to which other grape family?", "options": ["Muscat", "Sauvignon", "Sémillon", "None — no relation to Muscat despite the name"], "answer": 3, "note": "Common misconception."}, {"id": 57, "block": "Grape Varieties", "level": "Qualification", "q": "Which red grape was widely planted in Bordeaux pre-phylloxera but is now dominant in Argentina?", "options": ["Petit Verdot", "Carmenère", "Malbec", "Cabernet Franc"], "answer": 2, "note": "Dominant in Mendoza."}, {"id": 58, "block": "Grape Varieties", "level": "Qualification", "q": "What is the typical Cabernet Sauvignon proportion in a Pauillac First Growth blend?", "options": ["30–40%", "50–60%", "70–90%", "95–100%"], "answer": 2, "note": ""}, {"id": 59, "block": "Grape Varieties", "level": "Qualification", "q": "Which variety is the latest to ripen among all Bordeaux red grapes?", "options": ["Cabernet Sauvignon", "Merlot", "Malbec", "Petit Verdot"], "answer": 3, "note": "Harvest order: Merlot > CF > CS > PV."}, {"id": 60, "block": "Grape Varieties", "level": "Qualification", "q": "What is d'Yquem's typical blend composition?", "options": ["100% Sémillon", "70% Sémillon, 30% Sauvignon Blanc", "50% Sémillon, 50% Sauvignon Blanc", "80% Sémillon, 15% SB, 5% Muscadelle"], "answer": 1, "note": ""}, {"id": 61, "block": "Viticulture & Diseases", "level": "Qualification", "q": "What is the most common vine training system in Bordeaux?", "options": ["Cordon de Royat", "Bush vine (gobelet)", "Double Guyot", "Lyre"], "answer": 2, "note": ""}, {"id": 62, "block": "Viticulture & Diseases", "level": "Qualification", "q": "Approximately how many days after flowering does harvest occur?", "options": ["50 days", "75 days", "100 days", "130 days"], "answer": 2, "note": "The Fête de la Fleur celebrates this."}, {"id": 63, "block": "Viticulture & Diseases", "level": "Qualification", "q": "What is véraison?", "options": ["The first sap flow in spring", "The flowering of the vine", "The colour change and softening of berries", "The final stage of barrel aging"], "answer": 2, "note": "Late July to mid-August."}, {"id": 64, "block": "Viticulture & Diseases", "level": "Qualification", "q": "In what year was Bordeaux Mixture (copper sulfate + lime) discovered?", "options": ["1855", "1868", "1882", "1900"], "answer": 2, "note": "By Millardet at Ducru-Beaucaillou."}, {"id": 65, "block": "Viticulture & Diseases", "level": "Qualification", "q": "Who discovered Bordeaux Mixture?", "options": ["Louis Pasteur", "Pierre-Marie-Alexis Millardet", "Jules Guyot", "Arnaud de Pontac"], "answer": 1, "note": ""}, {"id": 66, "block": "Viticulture & Diseases", "level": "Qualification", "q": "What disease is treated with sulphur (soufre)?", "options": ["Downy mildew", "Powdery mildew (oïdium)", "Phylloxera", "Esca"], "answer": 1, "note": "Downy mildew = Bordeaux Mixture."}, {"id": 67, "block": "Viticulture & Diseases", "level": "Qualification", "q": "What is esca's most dramatic symptom?", "options": ["Leaf yellowing", "Berry shrivelling", "Apoplexy (sudden death of the vine)", "Gall formation on roots"], "answer": 2, "note": "Also shows 'tiger stripe' leaves."}, {"id": 68, "block": "Viticulture & Diseases", "level": "Qualification", "q": "Why has esca increased since 2001?", "options": ["Climate change only", "Sodium arsenite (arsenic-based fungicide) was banned", "Phylloxera mutation", "Overuse of Bordeaux mixture"], "answer": 1, "note": ""}, {"id": 69, "block": "Viticulture & Diseases", "level": "Qualification", "q": "What is the vector for Flavescence Dorée?", "options": ["Phylloxera aphid", "European grapevine moth", "Cicadelle leafhopper (Scaphoideus titanus)", "Spider mites"], "answer": 2, "note": ""}, {"id": 70, "block": "Viticulture & Diseases", "level": "Qualification", "q": "Can Flavescence Dorée be cured once a vine is infected?", "options": ["Yes, with copper sprays", "Yes, with arsenic treatment", "No — infected vines must be uprooted and burned", "Yes, with hot water treatment"], "answer": 2, "note": "Compulsory spraying since 2001."}, {"id": 71, "block": "Viticulture & Diseases", "level": "Qualification", "q": "Which First Growth was the first to receive organic certification?", "options": ["Ch. Margaux", "Ch. Mouton Rothschild", "Ch. Latour", "Ch. Lafite Rothschild"], "answer": 2, "note": "Certified 2018."}, {"id": 72, "block": "Viticulture & Diseases", "level": "Qualification", "q": "In what year was Château Latour certified organic?", "options": ["2010", "2014", "2018", "2022"], "answer": 2, "note": ""}, {"id": 73, "block": "Viticulture & Diseases", "level": "Qualification", "q": "What percentage of Bordeaux vineyard area is HVE-certified (as of 2024)?", "options": ["20%", "40%", "60%", "80%"], "answer": 2, "note": ""}, {"id": 74, "block": "Viticulture & Diseases", "level": "Qualification", "q": "What biodynamic preparation involves cow manure buried in cow horns?", "options": ["Preparation 500", "Preparation 501", "Preparation 502", "Preparation 508"], "answer": 0, "note": "Buried over winter."}, {"id": 75, "block": "Viticulture & Diseases", "level": "Qualification", "q": "How many litres are in a Salmanazar?", "options": ["3 litres", "6 litres", "9 litres", "12 litres"], "answer": 2, "note": ""}, {"id": 76, "block": "Vintages & Key Dates", "level": "Final", "q": "In which year did Château d'Yquem most recently declassify its entire harvest?", "options": ["1992", "2002", "2012", "2013"], "answer": 2, "note": "2002 is a trap — d'Yquem DID produce wine in 2002."}, {"id": 77, "block": "Vintages & Key Dates", "level": "Final", "q": "The 1982 Bordeaux vintage is historically significant because:", "options": ["First year en primeur sales introduced", "Robert Parker's early reviews launched his career", "Latour left the en primeur system", "Hottest vintage on record"], "answer": 1, "note": ""}, {"id": 78, "block": "Vintages & Key Dates", "level": "Final", "q": "Which vintage met all 5 conditions for a successful Bordeaux vintage?", "options": ["2006", "2005", "2007", "2013"], "answer": 1, "note": "Only vintage 2005–2018 to meet all five. 2015 and 2016 also met all five."}, {"id": 79, "block": "Vintages & Key Dates", "level": "Final", "q": "The 2003 Bordeaux vintage is characterised by:", "options": ["Late harvest and high acidity", "Record European heatwave and atypically over-ripe wines", "Exceptional Sauternes botrytis", "Severe April frost"], "answer": 1, "note": "Earliest harvest in modern history."}, {"id": 80, "block": "Vintages & Key Dates", "level": "Final", "q": "Which pair of consecutive vintages is often called a 'trilogy' with 1988?", "options": ["1989 and 1990", "1985 and 1986", "1995 and 1996", "2009 and 2010"], "answer": 0, "note": ""}, {"id": 81, "block": "Vintages & Key Dates", "level": "Final", "q": "The 2016 Left Bank vintage is frequently compared to which earlier vintage?", "options": ["1982", "2000", "2010", "2005"], "answer": 2, "note": "For structure."}, {"id": 82, "block": "Vintages & Key Dates", "level": "Final", "q": "Which natural hazard caused up to 70% crop losses in 2017?", "options": ["Hail", "Spring frost (April)", "Severe drought", "Flooding"], "answer": 1, "note": "Worst since 1991."}, {"id": 83, "block": "Vintages & Key Dates", "level": "Final", "q": "In 2021, sweet wine production was devastated by:", "options": ["Phylloxera resurgence", "Severe spring frost", "Grey rot", "Hailstorm"], "answer": 1, "note": ""}, {"id": 84, "block": "Vintages & Key Dates", "level": "Final", "q": "Which Mouton label artist created the 'V for Victory' design in 1945?", "options": ["Salvador Dalí", "Pablo Picasso", "Philippe Jullian", "Andy Warhol"], "answer": 2, "note": "First in the permanent artist-label tradition."}, {"id": 85, "block": "Vintages & Key Dates", "level": "Final", "q": "The 1961 vintage achieved extraordinary concentration primarily because of:", "options": ["Record high temperatures", "Severe frost reducing crop by over 50%", "Late harvest in November", "Extensive use of reverse osmosis"], "answer": 1, "note": "Greatest LB vintage of the 20th century."}, {"id": 86, "block": "Bordeaux Trade", "level": "Final", "q": "In the Place de Bordeaux, who earns the traditional 2% commission?", "options": ["The négociant", "The courtier (broker)", "The château", "The importer"], "answer": 1, "note": "'Monsieur 2%'."}, {"id": 87, "block": "Bordeaux Trade", "level": "Final", "q": "Château Latour withdrew from en primeur starting from which vintage?", "options": ["2009", "2010", "2012 (last EP was 2011 vintage)", "2015"], "answer": 2, "note": ""}, {"id": 88, "block": "Bordeaux Trade", "level": "Final", "q": "When was the UGCB created?", "options": ["1855", "1949", "1973", "2002"], "answer": 2, "note": "~132 member estates."}, {"id": 89, "block": "Bordeaux Trade", "level": "Final", "q": "En primeur barrel sample tastings typically take place in:", "options": ["January of the harvest year", "April of the year following harvest", "September of the harvest year", "June, two years after harvest"], "answer": 1, "note": ""}, {"id": 90, "block": "Bordeaux Trade", "level": "Final", "q": "Which of the following is NOT a major Bordeaux négociant house?", "options": ["Joanne", "Duclot", "Perrin & Fils", "CVBG (Dourthe-Kressmann)"], "answer": 2, "note": "Perrin & Fils is a Rhône producer (Beaucastel)."}, {"id": 91, "block": "Bordeaux Trade", "level": "Final", "q": "How many member estates does the UGCB approximately include?", "options": ["61", "100", "132", "249"], "answer": 2, "note": ""}, {"id": 92, "block": "Bordeaux Trade", "level": "Final", "q": "Latour 2012 was sold through approximately how many négociants?", "options": ["5", "30", "100", "250"], "answer": 1, "note": ""}, {"id": 93, "block": "Bordeaux Trade", "level": "Final", "q": "The Place de Bordeaux has expanded to distribute wines from which non-Bordeaux region?", "options": ["Burgundy only", "California and Italy, among others", "Champagne only", "Exclusively Bordeaux wines"], "answer": 1, "note": "Opus One, Ornellaia, Masseto."}, {"id": 94, "block": "History & Consultants", "level": "Final", "q": "Denis Dubourdieu was known by what nickname?", "options": ["'Le Baron du Rouge'", "'Le Pape du Blanc' (The Pope of White Wine)", "'Monsieur Merlot'", "'Le Maître de Pauillac'"], "answer": 1, "note": ""}, {"id": 95, "block": "History & Consultants", "level": "Final", "q": "Eric Boissenot consults for how many of the five Médoc First Growths?", "options": ["1", "2", "4", "5"], "answer": 2, "note": "Haut-Brion uses its own team."}, {"id": 96, "block": "History & Consultants", "level": "Final", "q": "Samuel Pepys recorded drinking 'Ho Bryan' on 10 April of which year?", "options": ["1653", "1663", "1787", "1855"], "answer": 1, "note": "Earliest estate-named wine reference."}, {"id": 97, "block": "History & Consultants", "level": "Final", "q": "Arnaud de Pontac promoted Haut-Brion in London through what establishment?", "options": ["The Bordeaux Wine Bar", "Pontack's Head tavern", "The Claret Club", "Haut-Brion London cellars"], "answer": 1, "note": "Opened ~1666."}, {"id": 98, "block": "History & Consultants", "level": "Final", "q": "The Marquis de Ségur simultaneously owned Lafite, Latour, Mouton, and which other estate?", "options": ["Cos d'Estournel", "Calon-Ségur", "Montrose", "Palmer"], "answer": 1, "note": "'My heart is at Calon' — heart on label."}, {"id": 99, "block": "History & Consultants", "level": "Final", "q": "Thomas Jefferson visited Bordeaux in which year?", "options": ["1763", "1787", "1815", "1855"], "answer": 1, "note": "His ranking anticipated the 1855 Classification."}, {"id": 100, "block": "AOC Rules", "level": "Final", "q": "Wines from Barsac may legally be labelled as:", "options": ["Only Barsac", "Either Barsac or Sauternes", "Only Sauternes", "Graves Supérieures"], "answer": 1, "note": ""}, {"id": 101, "block": "AOC Rules", "level": "Final", "q": "In Bordeaux, the Impériale bottle contains how many litres?", "options": ["3 litres", "4.5 litres", "6 litres", "9 litres"], "answer": 2, "note": "Burgundy/Champagne equivalent = Mathusalem."}, {"id": 102, "block": "AOC Rules", "level": "Final", "q": "How many new grape varieties did INAO approve for Bordeaux in 2021?", "options": ["4", "6", "7", "10"], "answer": 1, "note": "4 red + 2 white = 6. Petit Manseng was rejected."}, {"id": 103, "block": "AOC Rules", "level": "Final", "q": "The newly approved adaptation varieties may NOT exceed what % of the final blend?", "options": ["5%", "10%", "15%", "25%"], "answer": 1, "note": "Max 10% blend, max 5% planted area."}, {"id": 104, "block": "AOC Rules", "level": "Final", "q": "It is illegal in Bordeaux to both chaptalise AND acidify the same must.", "options": ["True", "False — you may do both in small amounts", "False — only acidification is banned", "False — only chaptalisation is banned"], "answer": 0, "note": ""}, {"id": 105, "block": "AOC Rules", "level": "Final", "q": "In Bordeaux, the Jéroboam bottle holds:", "options": ["3 litres (= Double Magnum)", "4.5 litres", "5 litres", "6 litres"], "answer": 2, "note": "Bordeaux Jéroboam = 5L; Champagne Jéroboam = 3L."}, {"id": 106, "block": "Climate & Adaptation", "level": "Final", "q": "Which Portuguese grape variety was approved for experimental use in Bordeaux?", "options": ["Touriga Franca", "Touriga Nacional", "Trincadeira", "Tinta Roriz"], "answer": 1, "note": ""}, {"id": 107, "block": "Climate & Adaptation", "level": "Final", "q": "The experimental vineyard 'Plot 52' was planted with how many candidate varieties?", "options": ["6", "12", "36", "52"], "answer": 3, "note": "Named '52' for the number of candidates."}, {"id": 108, "block": "Climate & Adaptation", "level": "Final", "q": "Which architect designed the new cellar at Château Pédesclaux?", "options": ["Norman Foster", "Philippe Starck", "Jean-Michel Wilmotte", "Daniel Romeo"], "answer": 2, "note": "Completed 2014, 100% gravity-fed."}, {"id": 109, "block": "Climate & Adaptation", "level": "Final", "q": "The gravity-flow cellar at Château Haut-Bailly (2020) was designed by:", "options": ["Norman Foster", "Didi Pei", "Daniel Romeo", "Philippe Starck"], "answer": 2, "note": "Semi-buried dome with rooftop garden."}, {"id": 110, "block": "Climate & Adaptation", "level": "Final", "q": "Which architect, son of I.M. Pei, designed the renovated Lynch-Bages winery?", "options": ["Daniel Romeo", "Jean-Michel Wilmotte", "Chien Chung (Didi) Pei", "Renzo Piano"], "answer": 2, "note": ""}, {"id": 111, "block": "Quotes & Trivia", "level": "Final", "q": "'Regum Mensis Arisque Deorum' appears on the label of:", "options": ["Ch. Gruaud-Larose", "Ch. d'Issan", "Ch. Beychevelle", "Ch. Calon-Ségur"], "answer": 1, "note": "'For the table of kings and the altar of the gods'."}, {"id": 112, "block": "Quotes & Trivia", "level": "Final", "q": "'Beychevelle' derives from 'baisse voile,' meaning:", "options": ["'Full sail ahead'", "'Lower the sail'", "'Raise the mast'", "'Drop anchor'"], "answer": 1, "note": "Ships lowered sails for the Duc d'Épernon."}, {"id": 113, "block": "Quotes & Trivia", "level": "Final", "q": "'Le Roi des Vins, le Vin des Rois' belongs to:", "options": ["Ch. Mouton Rothschild", "Ch. Gruaud-Larose", "Ch. Lafite Rothschild", "Ch. Latour"], "answer": 1, "note": "'The King of Wines, the Wine of Kings'."}, {"id": 114, "block": "Quotes & Trivia", "level": "Final", "q": "The Manneken Pis was inducted into:", "options": ["Kensington Gardens", "The Little Mermaid society", "The Commanderie du Bontemps", "A Mouton Rothschild bottle"], "answer": 2, "note": "⚠️ TRAP QUESTION: The answer given here is C (Commanderie), but the CORRECT answer is actually the Grand Conseil du Vin de Bordeaux (9 September 2015). This question tests whether you fall for the trap."}, {"id": 115, "block": "Quotes & Trivia", "level": "Final", "q": "Which quote, attributed to Martin Luther, appeared in a past LBBC question?", "options": ["'In vino veritas'", "'He who loves not wine, women and song remains a fool his whole life long'", "'Wine is bottled poetry'", "'God made only water, but man made wine'"], "answer": 1, "note": ""}, {"id": 116, "block": "Vintages (Advanced)", "level": "Final", "q": "Which LB vintage had the earliest harvest in modern history, driven by record heatwave >40°C?", "options": ["2009", "2003", "2022", "1947"], "answer": 1, "note": ""}, {"id": 117, "block": "Vintages (Advanced)", "level": "Final", "q": "The 1961 Bordeaux vintage achieved legendary status primarily due to:", "options": ["Record sunshine hours", "Spring frost reducing crop by 50%+, yielding tiny concentrated berries", "Perfect autumn rains", "First vintage entirely in stainless steel"], "answer": 1, "note": ""}, {"id": 118, "block": "Vintages (Advanced)", "level": "Final", "q": "Odd one out: which vintage does NOT belong in the famous 'trilogy'?", "options": ["1988", "1989", "1990", "1986"], "answer": 3, "note": "The '1988-89-90 trilogy'."}, {"id": 119, "block": "Vintages (Advanced)", "level": "Final", "q": "In which vintage was en primeur conducted virtually for the first time?", "options": ["2018", "2019", "2020", "2021"], "answer": 2, "note": "COVID-19 restrictions."}, {"id": 120, "block": "Vintages (Advanced)", "level": "Final", "q": "What do vintages 1975, 1983, and 2001 share in common regarding Sauternes?", "options": ["All declassified by d'Yquem", "All are considered among the greatest Sauternes vintages", "All saw severe frost", "All were first vintages of new directors"], "answer": 1, "note": ""}, {"id": 121, "block": "Vintages (Advanced)", "level": "Final", "q": "The 'V for Victory' label of Mouton 1945 was designed by:", "options": ["Georges Braque", "Pablo Picasso", "Philippe Jullian", "Salvador Dalí"], "answer": 2, "note": ""}, {"id": 122, "block": "Vintages (Advanced)", "level": "Final", "q": "Which vintage saw Parker give 100 points to BOTH Lafite and Latour?", "options": ["1982", "2000", "2005", "2009"], "answer": 0, "note": ""}, {"id": 123, "block": "Vintages (Advanced)", "level": "Final", "q": "In 2017, severe April frost especially devastated which appellation for sweet wine?", "options": ["Margaux", "Pauillac", "Sauternes", "Saint-Julien"], "answer": 2, "note": ""}, {"id": 124, "block": "Vintages (Advanced)", "level": "Final", "q": "Which Mouton label artist created the work for the 2010 vintage?", "options": ["Anish Kapoor", "Jeff Koons", "Olafur Eliasson", "Gerhard Richter"], "answer": 1, "note": ""}, {"id": 125, "block": "Vintages (Advanced)", "level": "Final", "q": "The 1929 Bordeaux vintage is historically notable because:", "options": ["First vintage sold en primeur", "Wines served at coronation of King George VI", "Last vintage before Great Depression", "Mouton first introduced artist labels"], "answer": 1, "note": "Particularly Latour-Martillac."}, {"id": 126, "block": "Bordeaux Trade (Advanced)", "level": "Final", "q": "In the Place de Bordeaux, the courtier is nicknamed:", "options": ["'Monsieur Prestige'", "'Monsieur 2%'", "'Monsieur Place'", "'Monsieur Château'"], "answer": 1, "note": ""}, {"id": 127, "block": "Bordeaux Trade (Advanced)", "level": "Final", "q": "Latour's LAST vintage offered en primeur was:", "options": ["2010", "2011", "2012", "2009"], "answer": 1, "note": "From 2012 vintage, releases only when ready."}, {"id": 128, "block": "Bordeaux Trade (Advanced)", "level": "Final", "q": "Which non-Bordeaux wine is sold through the Place de Bordeaux?", "options": ["Romanée-Conti", "Opus One", "Champagne Krug", "Vega Sicilia"], "answer": 1, "note": "Also Ornellaia and Masseto."}, {"id": 129, "block": "Bordeaux Trade (Advanced)", "level": "Final", "q": "When was the UGCB established?", "options": ["1855", "1935", "1973", "1995"], "answer": 2, "note": ""}, {"id": 130, "block": "Bordeaux Trade (Advanced)", "level": "Final", "q": "Latour 2012 (first post-EP release) was released in which year?", "options": ["2015", "2018", "2020", "2022"], "answer": 2, "note": ""}, {"id": 131, "block": "Bordeaux Trade (Advanced)", "level": "Final", "q": "Which Bordeaux négociant house was founded in 1734?", "options": ["Joanne", "CVBG Dourthe-Kressmann", "Nathaniel Johnston & Fils", "Millésima"], "answer": 2, "note": ""}, {"id": 132, "block": "Bordeaux Trade (Advanced)", "level": "Final", "q": "Approximate number of UGCB member estates?", "options": ["61", "100", "132", "249"], "answer": 2, "note": ""}, {"id": 133, "block": "Bordeaux Trade (Advanced)", "level": "Final", "q": "En primeur barrel sample tastings typically occur in:", "options": ["January of harvest year", "April of the year following harvest", "September of harvest year", "June, two years after harvest"], "answer": 1, "note": ""}, {"id": 134, "block": "AOC Rules (Advanced)", "level": "Final", "q": "Minimum planting density for Pauillac AOC?", "options": ["4,500 vines/ha", "6,500 vines/ha", "7,000 vines/ha", "8,000 vines/ha"], "answer": 2, "note": "6,500 is transitional for pre-2009 plantings only."}, {"id": 135, "block": "AOC Rules (Advanced)", "level": "Final", "q": "It is forbidden to simultaneously perform which two cellar operations on the same must?", "options": ["Fining and filtering", "Chaptalisation and acidification", "Racking and fining", "Cold soaking and extended maceration"], "answer": 1, "note": ""}, {"id": 136, "block": "AOC Rules (Advanced)", "level": "Final", "q": "How many grape varieties approved by INAO in 2021 for experimental Bordeaux use?", "options": ["4", "6", "7", "10"], "answer": 1, "note": "4 red + 2 white = 6."}, {"id": 137, "block": "AOC Rules (Advanced)", "level": "Final", "q": "New adaptation varieties may constitute no more than what % of final blend?", "options": ["5%", "10%", "15%", "25%"], "answer": 1, "note": ""}, {"id": 138, "block": "AOC Rules (Advanced)", "level": "Final", "q": "Wines from Barsac may legally be labelled as:", "options": ["Only Barsac", "Either Barsac or Sauternes", "Barsac, Sauternes, or Graves Supérieures", "Only Sauternes"], "answer": 1, "note": ""}, {"id": 139, "block": "AOC Rules (Advanced)", "level": "Final", "q": "Pessac-Léognan AOC was created on 9 September of which year?", "options": ["1979", "1987", "1990", "2003"], "answer": 1, "note": ""}, {"id": 140, "block": "AOC Rules (Advanced)", "level": "Final", "q": "Maximum permitted yield in Sauternes AOC?", "options": ["15 hl/ha", "25 hl/ha", "40 hl/ha", "50 hl/ha"], "answer": 1, "note": ""}, {"id": 141, "block": "AOC Rules (Advanced)", "level": "Final", "q": "Minimum alcohol content for Sauternes AOC?", "options": ["10.5% ABV", "12.5% ABV", "13% ABV", "14% ABV"], "answer": 2, "note": ""}, {"id": 142, "block": "History (Advanced)", "level": "Final", "q": "Eric Boissenot advises how many of the five Médoc First Growths?", "options": ["2", "3", "4", "5"], "answer": 2, "note": "Haut-Brion uses its own in-house team."}, {"id": 143, "block": "History (Advanced)", "level": "Final", "q": "Denis Dubourdieu founded which research institute before his death in 2016?", "options": ["Bordeaux Wine School", "ISVV (Institut des Sciences de la Vigne et du Vin)", "Commanderie Research Centre", "INAO Bordeaux Laboratory"], "answer": 1, "note": "Founded 2009."}, {"id": 144, "block": "History (Advanced)", "level": "Final", "q": "Which figure sent his son to London in 1666 to open 'Pontack's Head' tavern?", "options": ["Jean de Pontac", "Arnaud de Pontac", "Pierre de Rauzan", "Nicolas-Alexandre de Ségur"], "answer": 1, "note": "Haut-Brion at 7 shillings/bottle."}, {"id": 145, "block": "History (Advanced)", "level": "Final", "q": "Earliest known written reference to estate-named wine, recorded 10 April 1663?", "options": ["Jefferson's diary about Lafite", "Samuel Pepys' diary about 'Ho Bryan'", "John Evelyn on Margaux", "King Charles II on 'Latower'"], "answer": 1, "note": ""}, {"id": 146, "block": "History (Advanced)", "level": "Final", "q": "The Marquis de Ségur famously said 'my heart is' at which estate?", "options": ["Cos d'Estournel", "Montrose", "Calon-Ségur", "Phélan Ségur"], "answer": 2, "note": "Inspired the heart on the label."}, {"id": 147, "block": "History (Advanced)", "level": "Final", "q": "Henri Martin, Grand Maître 1969–1991, created which Saint-Julien estate from classified parcels?", "options": ["Ch. Gloria", "Ch. du Glana", "Ch. Lalande-Borie", "Ch. Hortevie"], "answer": 0, "note": "Not classified itself."}, {"id": 148, "block": "Climate (Advanced)", "level": "Final", "q": "'Plot 52' in Pessac-Léognan tested how many candidate grape varieties?", "options": ["6", "12", "36", "52"], "answer": 3, "note": ""}, {"id": 149, "block": "Climate (Advanced)", "level": "Final", "q": "Which Portuguese grape, approved for Bordeaux 2021, is that country's most prestigious red?", "options": ["Touriga Franca", "Tinta Roriz", "Touriga Nacional", "Baga"], "answer": 2, "note": ""}, {"id": 150, "block": "Climate (Advanced)", "level": "Final", "q": "Since the 1980s, Bordeaux harvest dates have advanced by approximately:", "options": ["1 week", "2–3 weeks", "4–5 weeks", "6–8 weeks"], "answer": 1, "note": ""}, {"id": 151, "block": "Climate (Advanced)", "level": "Final", "q": "In the 2025 Cru Bourgeois classification, what new requirement became mandatory?", "options": ["Organic certification", "Biodynamic certification", "HVE sustainability certification", "Carbon neutral certification"], "answer": 2, "note": "Partly explains drop from 249 to 170 estates."}, {"id": 152, "block": "Labels & Architecture", "level": "Final", "q": "Odd one out: which château does NOT have a walled vineyard enclosure (clos)?", "options": ["Calon-Ségur", "Léoville Las Cases", "Ch. d'Issan", "Ch. Palmer"], "answer": 3, "note": ""}, {"id": 153, "block": "Labels & Architecture", "level": "Final", "q": "Which architect designed the semi-buried domed cellar at Haut-Bailly (2020)?", "options": ["Norman Foster", "Philippe Starck", "Daniel Romeo", "Jean-Michel Wilmotte"], "answer": 2, "note": "38-metre dome with rooftop garden; HQE certified."}, {"id": 154, "block": "Labels & Architecture", "level": "Final", "q": "'Bordeaux Mixture' was first developed at which Left Bank château?", "options": ["Ch. Margaux", "Ch. Ducru-Beaucaillou", "Ch. Lafite Rothschild", "Ch. Haut-Brion"], "answer": 1, "note": "By Professor Millardet in the 1880s."}, {"id": 155, "block": "Labels & Architecture", "level": "Final", "q": "In the Bordeaux bottle size system, what is the correct capacity of an 'Impériale'?", "options": ["3 litres", "4.5 litres", "6 litres", "9 litres"], "answer": 2, "note": "Same as Mathusalem in Champagne/Burgundy."}];
+
+let state = {
+  questions: [],
+  current: 0,
+  answers: {},
+  answered: new Set(),
+  correct: 0,
+  wrong: 0,
+  reviewMode: false,
+  reviewQuestions: []
+};
+
+// Populate topic filters
+const topics = [...new Set(ALL_QUESTIONS.map(q => q.block))];
+const topicContainer = document.getElementById('topicFilters');
+topics.forEach(t => {
+  const btn = document.createElement('button');
+  btn.className = 'filter-btn';
+  btn.dataset.filter = t;
+  btn.textContent = t;
+  topicContainer.appendChild(btn);
+});
+
+// Filter logic
+let activeLevel = 'all';
+let activeTopic = 'all';
+
+function getFilteredQuestions() {
+  return ALL_QUESTIONS.filter(q => {
+    const levelMatch = activeLevel === 'all' || q.level === activeLevel;
+    const topicMatch = activeTopic === 'all' || q.block === activeTopic;
+    return levelMatch && topicMatch;
+  });
+}
+
+function updateCount() {
+  const filtered = getFilteredQuestions();
+  document.getElementById('qCount').textContent = filtered.length + ' questions selected';
+}
+
+document.querySelectorAll('#levelFilters .filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#levelFilters .filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeLevel = btn.dataset.filter;
+    updateCount();
+  });
+});
+
+document.querySelectorAll('#topicFilters .filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#topicFilters .filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeTopic = btn.dataset.filter;
+    updateCount();
+  });
+});
+
+updateCount();
+
+// Shuffle
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// START
+document.getElementById('startBtn').addEventListener('click', startQuiz);
+
+function startQuiz() {
+  let qs = getFilteredQuestions();
+  if (qs.length === 0) { alert('No questions match your filters.'); return; }
+  if (document.getElementById('shuffleToggle').checked) qs = shuffle(qs);
+
+  state = {
+    questions: qs,
+    current: 0,
+    answers: {},
+    answered: new Set(),
+    correct: 0,
+    wrong: 0,
+    reviewMode: false,
+    reviewQuestions: []
+  };
+
+  document.getElementById('startScreen').style.display = 'none';
+  document.getElementById('quizScreen').classList.add('active');
+  document.getElementById('resultsScreen').classList.remove('active');
+  document.getElementById('reviewInfo').style.display = 'none';
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const qs = state.reviewMode ? state.reviewQuestions : state.questions;
+  const q = qs[state.current];
+  const total = qs.length;
+
+  document.getElementById('progressFill').style.width = ((state.current + 1) / total * 100) + '%';
+  document.getElementById('qLabel').textContent = 'Question ' + (state.current + 1) + ' of ' + total + ' (Q' + q.id + ')';
+  document.getElementById('blockLabel').textContent = q.block;
+
+  const lt = document.getElementById('levelTag');
+  lt.textContent = q.level === 'Qualification' ? 'QUAL' : 'FINAL';
+  lt.className = 'level-tag ' + (q.level === 'Qualification' ? 'qual' : 'final');
+
+  document.getElementById('questionText').textContent = 'Q' + q.id + '. ' + q.q;
+
+  const container = document.getElementById('optionsContainer');
+  container.innerHTML = '';
+  const letters = ['A', 'B', 'C', 'D'];
+
+  q.options.forEach((opt, i) => {
+    const div = document.createElement('div');
+    div.className = 'option';
+    div.dataset.index = i;
+    div.innerHTML = '<span class="letter">' + letters[i] + '</span><span>' + opt + '</span>';
+    div.addEventListener('click', () => selectOption(i));
+    container.appendChild(div);
+  });
+
+  // If already answered, show state
+  const key = q.id;
+  if (state.answered.has(key)) {
+    showAnswerState(q, state.answers[key]);
+  }
+
+  document.getElementById('noteBox').classList.remove('visible');
+
+  document.getElementById('prevBtn').style.visibility = state.current === 0 ? 'hidden' : 'visible';
+  document.getElementById('nextBtn').textContent = state.current === total - 1 ?
+    (state.reviewMode ? 'Back to Results' : 'Finish') : 'Next';
+
+  updateScoreDisplay();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function selectOption(index) {
+  const qs = state.reviewMode ? state.reviewQuestions : state.questions;
+  const q = qs[state.current];
+  const key = q.id;
+
+  if (state.answered.has(key)) return;
+
+  state.answered.add(key);
+  state.answers[key] = index;
+
+  if (index === q.answer) {
+    state.correct++;
+  } else {
+    state.wrong++;
+  }
+
+  showAnswerState(q, index);
+  updateScoreDisplay();
+}
+
+function showAnswerState(q, selectedIndex) {
+  const opts = document.querySelectorAll('.option');
+  opts.forEach((opt, i) => {
+    opt.classList.add('disabled');
+    if (i === q.answer) {
+      opt.classList.add(selectedIndex === q.answer ? 'correct' : 'reveal-correct');
+    }
+    if (i === selectedIndex && selectedIndex !== q.answer) {
+      opt.classList.add('wrong');
+    }
+  });
+
+  // Show note
+  let noteContent = '';
+  if (q.note) noteContent = q.note;
+  if (q.id === 114) {
+    noteContent = '⚠️ <strong>TRAP QUESTION:</strong> The listed answer is C (Commanderie du Bontemps), but the <em>actual correct answer</em> is the <strong>Grand Conseil du Vin de Bordeaux</strong> (9 September 2015). This is a deliberate exam trap to test your knowledge.';
+  }
+
+  if (noteContent) {
+    document.getElementById('noteText').innerHTML = noteContent;
+    document.getElementById('noteBox').classList.add('visible');
+  }
+}
+
+function updateScoreDisplay() {
+  const total = state.answered.size;
+  const pct = total > 0 ? Math.round(state.correct / total * 100) : 0;
+  document.getElementById('scoreDisplay').textContent = state.correct + '/' + total + ' correct (' + pct + '%)';
+}
+
+// NAVIGATION
+document.getElementById('nextBtn').addEventListener('click', () => {
+  const qs = state.reviewMode ? state.reviewQuestions : state.questions;
+  if (state.current < qs.length - 1) {
+    state.current++;
+    renderQuestion();
+  } else if (state.reviewMode) {
+    showResults();
+  } else {
+    showResults();
+  }
+});
+
+document.getElementById('prevBtn').addEventListener('click', () => {
+  if (state.current > 0) {
+    state.current--;
+    renderQuestion();
+  }
+});
+
+// KEYBOARD
+document.addEventListener('keydown', (e) => {
+  if (!document.getElementById('quizScreen').classList.contains('active')) return;
+
+  const keyMap = { 'a': 0, 'b': 1, 'c': 2, 'd': 3, '1': 0, '2': 1, '3': 2, '4': 3 };
+  const key = e.key.toLowerCase();
+
+  if (keyMap[key] !== undefined) {
+    selectOption(keyMap[key]);
+  } else if (key === 'arrowright' || key === 'enter') {
+    document.getElementById('nextBtn').click();
+  } else if (key === 'arrowleft') {
+    document.getElementById('prevBtn').click();
+  }
+});
+
+// RESULTS
+function showResults() {
+  document.getElementById('quizScreen').classList.remove('active');
+  document.getElementById('resultsScreen').classList.add('active');
+
+  const total = state.questions.length;
+  const answered = state.answered.size;
+  const skipped = total - answered;
+  const pct = answered > 0 ? Math.round(state.correct / answered * 100) : 0;
+
+  let grade = '';
+  if (pct >= 90) grade = '🏆 Outstanding!';
+  else if (pct >= 75) grade = '🥂 Excellent!';
+  else if (pct >= 60) grade = '🍷 Good Progress';
+  else if (pct >= 40) grade = '📚 Keep Studying';
+  else grade = '💪 Time to Hit the Books';
+
+  document.getElementById('finalScore').textContent = state.correct + ' / ' + total;
+  document.getElementById('finalDetail').textContent = grade;
+  document.getElementById('statCorrect').textContent = state.correct;
+  document.getElementById('statWrong').textContent = state.wrong;
+  document.getElementById('statSkipped').textContent = skipped;
+  document.getElementById('statPct').textContent = pct + '%';
+
+  const grid = document.getElementById('resultsGrid');
+  grid.innerHTML = '';
+  state.questions.forEach((q, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'results-dot';
+    btn.textContent = q.id;
+
+    if (state.answered.has(q.id)) {
+      btn.classList.add(state.answers[q.id] === q.answer ? 'correct' : 'wrong');
+    } else {
+      btn.classList.add('skipped');
+    }
+
+    btn.addEventListener('click', () => {
+      state.current = i;
+      state.reviewMode = false;
+      document.getElementById('resultsScreen').classList.remove('active');
+      document.getElementById('quizScreen').classList.add('active');
+      document.getElementById('reviewInfo').style.display = 'block';
+      document.getElementById('reviewInfo').textContent = '📖 Reviewing Q' + q.id;
+      renderQuestion();
+    });
+
+    grid.appendChild(btn);
+  });
+
+  // Review wrong
+  document.getElementById('reviewWrongBtn').style.display =
+    state.wrong > 0 ? 'inline-flex' : 'none';
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+document.getElementById('reviewWrongBtn').addEventListener('click', () => {
+  const wrongQs = state.questions.filter(q => state.answered.has(q.id) && state.answers[q.id] !== q.answer);
+  if (wrongQs.length === 0) return;
+
+  // Reset answers for wrong questions so user can try again
+  wrongQs.forEach(q => {
+    state.answered.delete(q.id);
+    delete state.answers[q.id];
+    state.wrong--;
+  });
+
+  state.reviewMode = true;
+  state.reviewQuestions = wrongQs;
+  state.current = 0;
+
+  document.getElementById('resultsScreen').classList.remove('active');
+  document.getElementById('quizScreen').classList.add('active');
+  document.getElementById('reviewInfo').style.display = 'block';
+  document.getElementById('reviewInfo').textContent = '📖 Review Mode — Reviewing ' + wrongQs.length + ' incorrect answer' + (wrongQs.length > 1 ? 's' : '');
+  renderQuestion();
+});
+
+document.getElementById('restartBtn').addEventListener('click', () => {
+  document.getElementById('resultsScreen').classList.remove('active');
+  document.getElementById('startScreen').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// THEME TOGGLE
+(function() {
+  const t = document.querySelector('[data-theme-toggle]');
+  const r = document.documentElement;
+  let d = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  r.setAttribute('data-theme', d);
+  updateIcon();
+  t.addEventListener('click', () => {
+    d = d === 'dark' ? 'light' : 'dark';
+    r.setAttribute('data-theme', d);
+    updateIcon();
+  });
+  function updateIcon() {
+    t.innerHTML = d === 'dark'
+      ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+      : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  }
+})();
+
+lucide.createIcons();
+</script>
+</body>
+</html>
