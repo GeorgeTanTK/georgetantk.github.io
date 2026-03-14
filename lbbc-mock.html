@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LBBC Theory Quiz — HK/Asia Qualifier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ───────── DESIGN TOKENS ───────── */
+:root,[data-theme="light"]{
+  --color-bg:#f7f4ef;
+  --color-surface:#faf8f4;
+  --color-surface-2:#fdfcfa;
+  --color-surface-offset:#f0ece4;
+  --color-divider:#e0d9ce;
+  --color-border:#d4ccc0;
+  --color-text:#1c1a16;
+  --color-text-muted:#6b6456;
+  --color-text-faint:#b0a898;
+  --color-text-inverse:#faf8f4;
+  --color-gold:#9b6f1a;
+  --color-gold-light:#c9922a;
+  --color-gold-highlight:#f5e9d0;
+  --color-burgundy:#7a1f2e;
+  --color-burgundy-light:#a02535;
+  --color-burgundy-highlight:#f0d4d8;
+  --color-success:#3a6b1e;
+  --color-success-highlight:#d4e8c8;
+  --color-error:#8b1c2e;
+  --color-error-highlight:#f0d0d4;
+  --shadow-sm:0 1px 3px rgba(28,20,10,0.08);
+  --shadow-md:0 4px 16px rgba(28,20,10,0.10);
+  --shadow-lg:0 12px 40px rgba(28,20,10,0.14);
+  --radius-sm:0.375rem;
+  --radius-md:0.5rem;
+  --radius-lg:0.75rem;
+  --radius-xl:1rem;
+  --font-display:'Cormorant Garamond',Georgia,serif;
+  --font-body:'Inter','Helvetica Neue',sans-serif;
+  --text-xs:clamp(0.75rem,0.7rem + 0.25vw,0.875rem);
+  --text-sm:clamp(0.875rem,0.8rem + 0.35vw,1rem);
+  --text-base:clamp(1rem,0.95rem + 0.25vw,1.125rem);
+  --text-lg:clamp(1.125rem,1rem + 0.75vw,1.5rem);
+  --text-xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);
+  --text-2xl:clamp(2rem,1.2rem + 2.5vw,3.5rem);
+  --space-1:0.25rem;--space-2:0.5rem;--space-3:0.75rem;--space-4:1rem;
+  --space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;
+  --space-12:3rem;--space-16:4rem;
+  --transition:180ms cubic-bezier(0.16,1,0.3,1);
+}
+[data-theme="dark"]{
+  --color-bg:#0f0d0a;
+  --color-surface:#161410;
+  --color-surface-2:#1c1a15;
+  --color-surface-offset:#201e18;
+  --color-divider:#2a2720;
+  --color-border:#353028;
+  --color-text:#e8e0d0;
+  --color-text-muted:#8a7e6e;
+  --color-text-faint:#504840;
+  --color-text-inverse:#0f0d0a;
+  --color-gold:#d4a030;
+  --color-gold-light:#e8b84a;
+  --color-gold-highlight:#302810;
+  --color-burgundy:#c4445a;
+  --color-burgundy-light:#d85e72;
+  --color-burgundy-highlight:#38181e;
+  --color-success:#6db84a;
+  --color-success-highlight:#1c3010;
+  --color-error:#d45a6a;
+  --color-error-highlight:#38141a;
+  --shadow-sm:0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md:0 4px 16px rgba(0,0,0,0.4);
+  --shadow-lg:0 12px 40px rgba(0,0,0,0.5);
+}
+
+/* ───────── BASE ───────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{min-height:100dvh;font-family:var(--font-body);font-size:var(--text-base);color:var(--color-text);background:var(--color-bg);transition:background var(--transition),color var(--transition)}
+img{display:block;max-width:100%;height:auto}
+button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
+h1,h2,h3{text-wrap:balance;line-height:1.15;font-family:var(--font-display)}
+p,li{text-wrap:pretty;max-width:72ch}
+:focus-visible{outline:2px solid var(--color-gold);outline-offset:3px;border-radius:var(--radius-sm)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* ───────── LAYOUT ───────── */
+.app{display:flex;flex-direction:column;min-height:100dvh}
+.header{position:sticky;top:0;z-index:100;background:var(--color-surface);border-bottom:1px solid var(--color-divider);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.header-inner{max-width:900px;margin-inline:auto;padding:var(--space-4) var(--space-6);display:flex;align-items:center;justify-content:space-between;gap:var(--space-4)}
+.logo{display:flex;align-items:center;gap:var(--space-3)}
+.logo-mark{width:36px;height:36px;flex-shrink:0}
+.logo-text{font-family:var(--font-display);font-size:var(--text-lg);font-weight:700;letter-spacing:-0.01em;line-height:1}
+.logo-sub{font-size:var(--text-xs);color:var(--color-text-muted);letter-spacing:0.08em;text-transform:uppercase;margin-top:2px}
+.header-actions{display:flex;align-items:center;gap:var(--space-3)}
+.theme-toggle{width:36px;height:36px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:var(--color-text-muted);transition:background var(--transition),color var(--transition)}
+.theme-toggle:hover{background:var(--color-surface-offset);color:var(--color-text)}
+.progress-bar-outer{width:120px;height:4px;background:var(--color-divider);border-radius:99px;overflow:hidden;display:none}
+.progress-bar-inner{height:100%;background:var(--color-gold);border-radius:99px;transition:width 0.4s cubic-bezier(0.16,1,0.3,1)}
+
+/* ───────── MAIN ───────── */
+.main{flex:1;max-width:900px;margin-inline:auto;width:100%;padding:var(--space-10) var(--space-6) var(--space-16)}
+
+/* ───────── SCREENS ───────── */
+.screen{display:none}
+.screen.active{display:block}
+
+/* ───────── HOME SCREEN ───────── */
+.hero{text-align:center;margin-bottom:var(--space-12)}
+.hero-eyebrow{font-size:var(--text-xs);letter-spacing:0.15em;text-transform:uppercase;color:var(--color-gold);font-family:var(--font-body);font-weight:500;margin-bottom:var(--space-4)}
+.hero-title{font-size:var(--text-2xl);font-weight:700;color:var(--color-text);margin-bottom:var(--space-4);line-height:1.05}
+.hero-title em{font-style:italic;color:var(--color-gold)}
+.hero-desc{font-size:var(--text-base);color:var(--color-text-muted);max-width:56ch;margin-inline:auto;line-height:1.7}
+.deck-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:var(--space-5)}
+.deck-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-8) var(--space-6);cursor:pointer;transition:box-shadow var(--transition),border-color var(--transition),transform var(--transition);position:relative;overflow:hidden}
+.deck-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity var(--transition)}
+.deck-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.deck-card.level-1::before{background:radial-gradient(ellipse at top left,oklch(from var(--color-gold) l c h / 0.06),transparent 70%)}
+.deck-card.level-2::before{background:radial-gradient(ellipse at top left,oklch(from var(--color-burgundy) l c h / 0.06),transparent 70%)}
+.deck-card.level-3::before{background:radial-gradient(ellipse at top left,oklch(from var(--color-gold) l c h / 0.08),transparent 70%)}
+.deck-card:hover::before{opacity:1}
+.deck-card:hover.level-1{border-color:var(--color-gold)}
+.deck-card:hover.level-2{border-color:var(--color-burgundy)}
+.deck-card:hover.level-3{border-color:var(--color-gold)}
+.deck-badge{display:inline-flex;align-items:center;gap:var(--space-2);font-size:var(--text-xs);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:var(--space-1) var(--space-3);border-radius:var(--radius-full);margin-bottom:var(--space-5)}
+.level-1 .deck-badge{background:var(--color-gold-highlight);color:var(--color-gold)}
+.level-2 .deck-badge{background:var(--color-burgundy-highlight);color:var(--color-burgundy)}
+.level-3 .deck-badge{background:var(--color-gold-highlight);color:var(--color-gold)}
+.deck-title{font-family:var(--font-display);font-size:var(--text-xl);font-weight:700;margin-bottom:var(--space-3);line-height:1.1}
+.deck-subtitle{font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-6);line-height:1.5}
+.deck-meta{display:flex;gap:var(--space-4);font-size:var(--text-xs);color:var(--color-text-faint)}
+.deck-meta span{display:flex;align-items:center;gap:var(--space-1)}
+.start-btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);margin-top:var(--space-6);width:100%;padding:var(--space-4) var(--space-6);border-radius:var(--radius-lg);font-size:var(--text-sm);font-weight:600;letter-spacing:0.02em;transition:background var(--transition),transform var(--transition),box-shadow var(--transition)}
+.level-1 .start-btn,.level-3 .start-btn{background:var(--color-gold);color:var(--color-text-inverse)}
+.level-2 .start-btn{background:var(--color-burgundy);color:#fff}
+.level-1 .start-btn:hover,.level-3 .start-btn:hover{background:var(--color-gold-light);box-shadow:0 4px 16px oklch(from var(--color-gold) l c h / 0.35)}
+.level-2 .start-btn:hover{background:var(--color-burgundy-light);box-shadow:0 4px 16px oklch(from var(--color-burgundy) l c h / 0.35)}
+.start-btn:hover{transform:translateY(-1px)}
+
+/* ───────── QUIZ SCREEN ───────── */
+.quiz-header{margin-bottom:var(--space-8)}
+.quiz-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--space-4)}
+.quiz-level-badge{font-size:var(--text-xs);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:var(--space-1) var(--space-3);border-radius:var(--radius-full)}
+.quiz-counter{font-size:var(--text-sm);color:var(--color-text-muted);font-variant-numeric:tabular-nums}
+.quiz-progress{height:3px;background:var(--color-divider);border-radius:99px;overflow:hidden}
+.quiz-progress-fill{height:100%;border-radius:99px;transition:width 0.5s cubic-bezier(0.16,1,0.3,1)}
+.level-1-fill,.level-3-fill{background:var(--color-gold)}
+.level-2-fill{background:var(--color-burgundy)}
+
+.question-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-8);margin-bottom:var(--space-6);box-shadow:var(--shadow-sm)}
+.q-block-tag{font-size:var(--text-xs);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-text-faint);margin-bottom:var(--space-4)}
+.q-number{font-size:var(--text-xs);color:var(--color-text-faint);font-variant-numeric:tabular-nums;margin-bottom:var(--space-3)}
+.q-text{font-family:var(--font-display);font-size:var(--text-lg);font-weight:600;color:var(--color-text);line-height:1.45;margin-bottom:var(--space-6)}
+
+.options{display:flex;flex-direction:column;gap:var(--space-3)}
+.option-btn{width:100%;text-align:left;padding:var(--space-4) var(--space-5);border:1.5px solid var(--color-border);border-radius:var(--radius-lg);background:var(--color-surface-2);font-size:var(--text-sm);line-height:1.55;color:var(--color-text);transition:border-color var(--transition),background var(--transition),color var(--transition),box-shadow var(--transition);display:flex;align-items:flex-start;gap:var(--space-4);cursor:pointer}
+.option-btn:not(.answered):hover{border-color:var(--color-gold);background:var(--color-surface-offset);box-shadow:var(--shadow-sm)}
+.option-label{flex-shrink:0;width:22px;height:22px;border-radius:var(--radius-full);border:1.5px solid var(--color-border);display:flex;align-items:center;justify-content:center;font-size:var(--text-xs);font-weight:600;transition:all var(--transition);margin-top:1px}
+.option-btn:not(.answered):hover .option-label{border-color:var(--color-gold);background:var(--color-gold-highlight);color:var(--color-gold)}
+.option-text{flex:1}
+.option-btn.correct{border-color:var(--color-success)!important;background:var(--color-success-highlight)!important;color:var(--color-success)!important}
+.option-btn.correct .option-label{border-color:var(--color-success);background:var(--color-success);color:#fff}
+.option-btn.wrong{border-color:var(--color-error)!important;background:var(--color-error-highlight)!important;color:var(--color-error)!important}
+.option-btn.wrong .option-label{border-color:var(--color-error);background:var(--color-error);color:#fff}
+.option-btn.revealed{border-color:var(--color-success)!important;background:var(--color-success-highlight)!important;color:var(--color-success)!important;opacity:0.8}
+.option-btn.revealed .option-label{border-color:var(--color-success);background:var(--color-success);color:#fff}
+.option-btn.answered{cursor:default;pointer-events:none}
+.option-btn.dimmed{opacity:0.45}
+
+.feedback-bar{padding:var(--space-4) var(--space-5);border-radius:var(--radius-lg);font-size:var(--text-sm);font-weight:500;margin-bottom:var(--space-5);display:none;align-items:center;gap:var(--space-3)}
+.feedback-bar.show{display:flex}
+.feedback-bar.correct-fb{background:var(--color-success-highlight);color:var(--color-success);border:1px solid oklch(from var(--color-success) l c h / 0.3)}
+.feedback-bar.wrong-fb{background:var(--color-error-highlight);color:var(--color-error);border:1px solid oklch(from var(--color-error) l c h / 0.3)}
+.feedback-icon{font-size:var(--text-lg);flex-shrink:0}
+
+.nav-row{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4)}
+.nav-btn{display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-3) var(--space-6);border-radius:var(--radius-lg);font-size:var(--text-sm);font-weight:600;transition:all var(--transition);border:1.5px solid transparent}
+.btn-ghost{border-color:var(--color-border);color:var(--color-text-muted)}
+.btn-ghost:hover{border-color:var(--color-text-muted);color:var(--color-text);background:var(--color-surface-offset)}
+.btn-primary-gold{background:var(--color-gold);color:var(--color-text-inverse)}
+.btn-primary-gold:hover{background:var(--color-gold-light);box-shadow:0 4px 12px oklch(from var(--color-gold) l c h / 0.3);transform:translateY(-1px)}
+.btn-primary-burg{background:var(--color-burgundy);color:#fff}
+.btn-primary-burg:hover{background:var(--color-burgundy-light);box-shadow:0 4px 12px oklch(from var(--color-burgundy) l c h / 0.3);transform:translateY(-1px)}
+.skip-row{text-align:center;margin-top:var(--space-4)}
+.skip-link{font-size:var(--text-xs);color:var(--color-text-faint);text-decoration:none;padding:var(--space-2) var(--space-4);border-radius:var(--radius-sm);cursor:pointer;transition:color var(--transition)}
+.skip-link:hover{color:var(--color-text-muted)}
+
+/* ───────── BLOCK DIVIDER ───────── */
+.block-divider{background:var(--color-surface-offset);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-5) var(--space-6);margin-bottom:var(--space-6);display:none;align-items:center;gap:var(--space-4)}
+.block-divider.show{display:flex}
+.block-divider-icon{font-size:1.5rem}
+.block-divider-title{font-family:var(--font-display);font-size:var(--text-lg);font-weight:700}
+.block-divider-sub{font-size:var(--text-xs);color:var(--color-text-muted);margin-top:2px}
+
+/* ───────── RESULTS SCREEN ───────── */
+.results-container{max-width:700px;margin-inline:auto}
+.results-hero{text-align:center;margin-bottom:var(--space-10)}
+.results-medal{font-size:4rem;margin-bottom:var(--space-4);display:block;animation:bounceIn 0.6s cubic-bezier(0.16,1,0.3,1)}
+@keyframes bounceIn{0%{transform:scale(0.4);opacity:0}60%{transform:scale(1.1)}100%{transform:scale(1);opacity:1}}
+.results-title{font-family:var(--font-display);font-size:var(--text-2xl);font-weight:700;margin-bottom:var(--space-3)}
+.results-subtitle{color:var(--color-text-muted);font-size:var(--text-base)}
+.score-ring{width:140px;height:140px;margin:var(--space-8) auto;position:relative}
+.score-ring svg{transform:rotate(-90deg)}
+.score-ring-track{fill:none;stroke:var(--color-divider);stroke-width:8}
+.score-ring-fill{fill:none;stroke-width:8;stroke-linecap:round;transition:stroke-dashoffset 1.2s cubic-bezier(0.16,1,0.3,1)}
+.score-ring-fill.gold-ring{stroke:var(--color-gold)}
+.score-ring-fill.burg-ring{stroke:var(--color-burgundy)}
+.score-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.score-num{font-family:var(--font-display);font-size:var(--text-xl);font-weight:700;line-height:1}
+.score-denom{font-size:var(--text-xs);color:var(--color-text-muted);margin-top:2px}
+.block-scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:var(--space-4);margin-bottom:var(--space-8)}
+.block-score-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-5);text-align:center}
+.bsc-label{font-size:var(--text-xs);color:var(--color-text-muted);letter-spacing:0.05em;margin-bottom:var(--space-2)}
+.bsc-value{font-family:var(--font-display);font-size:var(--text-xl);font-weight:700}
+.bsc-max{font-size:var(--text-xs);color:var(--color-text-faint)}
+.results-actions{display:flex;gap:var(--space-4);flex-wrap:wrap;justify-content:center}
+.review-list{margin-top:var(--space-8)}
+.review-list-title{font-family:var(--font-display);font-size:var(--text-xl);font-weight:700;margin-bottom:var(--space-6);padding-bottom:var(--space-4);border-bottom:1px solid var(--color-divider)}
+.review-item{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-5) var(--space-6);margin-bottom:var(--space-4)}
+.review-item.ri-correct{border-left:3px solid var(--color-success)}
+.review-item.ri-wrong{border-left:3px solid var(--color-error)}
+.ri-q{font-size:var(--text-xs);color:var(--color-text-faint);margin-bottom:var(--space-2)}
+.ri-text{font-family:var(--font-display);font-size:var(--text-base);font-weight:600;margin-bottom:var(--space-3);line-height:1.4}
+.ri-answers{font-size:var(--text-xs);display:flex;flex-direction:column;gap:var(--space-1)}
+.ri-your{color:var(--color-error)}
+.ri-correct-ans{color:var(--color-success)}
+.ri-status-icon{font-size:var(--text-base);float:right;margin-left:var(--space-3)}
+
+/* ───────── DIVIDERS ───────── */
+hr.section-rule{border:none;border-top:1px solid var(--color-divider);margin:var(--space-8) 0}
+
+/* ───────── RESPONSIVE ───────── */
+@media(max-width:640px){
+  .main{padding:var(--space-8) var(--space-4) var(--space-12)}
+  .question-card{padding:var(--space-6) var(--space-5)}
+  .header-inner{padding:var(--space-3) var(--space-4)}
+  .logo-sub{display:none}
+  .deck-card{padding:var(--space-6)}
+  .results-actions{flex-direction:column}
+  .nav-row{flex-wrap:wrap}
+  .progress-bar-outer{width:80px}
+  .block-scores{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ───────── VINE DECORATION ───────── */
+.vine-accent{color:var(--color-gold);opacity:0.4;font-size:1.2rem;letter-spacing:0.3rem;user-select:none}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">
+      <svg class="logo-mark" viewBox="0 0 36 36" fill="none" aria-label="LBBC Logo">
+        <circle cx="18" cy="18" r="17" stroke="currentColor" stroke-width="1.2" opacity="0.3"/>
+        <ellipse cx="18" cy="22" rx="7" ry="9" stroke="currentColor" stroke-width="1.5" fill="none" stroke-opacity="0.8"/>
+        <path d="M18 13 C18 13 14 9 12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <path d="M18 13 C18 13 22 9 24 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <circle cx="18" cy="22" r="2.5" fill="currentColor" opacity="0.6"/>
+        <circle cx="14" cy="20" r="1.8" fill="currentColor" opacity="0.5"/>
+        <circle cx="22" cy="20" r="1.8" fill="currentColor" opacity="0.5"/>
+        <circle cx="15" cy="25" r="1.8" fill="currentColor" opacity="0.5"/>
+        <circle cx="21" cy="25" r="1.8" fill="currentColor" opacity="0.5"/>
+      </svg>
+      <div>
+        <div class="logo-text">LBBC Theory</div>
+        <div class="logo-sub">HK / Asia Qualifier</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <div class="progress-bar-outer" id="headerProgress">
+        <div class="progress-bar-inner" id="headerProgressFill"></div>
+      </div>
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- HOME SCREEN -->
+  <div class="screen active" id="screen-home">
+    <div class="hero">
+      <div class="vine-accent">⸻ 🍇 ⸻</div>
+      <br>
+      <p class="hero-eyebrow">Commanderie du Bontemps · Left Bank Bordeaux Cup</p>
+      <h1 class="hero-title">Master the <em>Classifications</em></h1>
+      <p class="hero-desc">Three full rounds of 10 questions each, at HK/Asia qualifier level. Choose your difficulty and test your knowledge of the 1855 Médoc, Sauternes & Barsac, Graves Crus Classés, and Médoc geography.</p>
+    </div>
+
+    <div class="deck-grid">
+      <!-- Level 1 -->
+      <div class="deck-card level-1" onclick="startQuiz(0)">
+        <div class="deck-badge">⬛ Round 1</div>
+        <h2 class="deck-title">Qualifier Level</h2>
+        <p class="deck-subtitle">Core classifications, growth counts, communes, second wines, and key ownership. Essential memorisation.</p>
+        <div class="deck-meta">
+          <span>📋 30 questions</span>
+          <span>⏱ ~15 min</span>
+        </div>
+        <button class="start-btn" tabindex="-1" aria-hidden="true">Start Round 1 →</button>
+      </div>
+      <!-- Level 2 -->
+      <div class="deck-card level-2" onclick="startQuiz(1)">
+        <div class="deck-badge">🟥 Round 2</div>
+        <h2 class="deck-title">Semi-Final Level</h2>
+        <p class="deck-subtitle">Harder commune details, estate histories, Sauternes intricacies, Graves white-only estates, ownership changes.</p>
+        <div class="deck-meta">
+          <span>📋 30 questions</span>
+          <span>⏱ ~18 min</span>
+        </div>
+        <button class="start-btn" tabindex="-1" aria-hidden="true">Start Round 2 →</button>
+      </div>
+      <!-- Level 3 -->
+      <div class="deck-card level-3" onclick="startQuiz(2)">
+        <div class="deck-badge">🏆 Round 3</div>
+        <h2 class="deck-title">Grand Final Level</h2>
+        <p class="deck-subtitle">Archival-depth questions on precise historical dates, auction records, founding events, and obscure estate facts.</p>
+        <div class="deck-meta">
+          <span>📋 30 questions</span>
+          <span>⏱ ~20 min</span>
+        </div>
+        <button class="start-btn" tabindex="-1" aria-hidden="true">Start Round 3 →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ SCREEN -->
+  <div class="screen" id="screen-quiz">
+    <div class="quiz-header">
+      <div class="quiz-meta">
+        <span class="quiz-level-badge" id="quizLevelBadge"></span>
+        <span class="quiz-counter" id="quizCounter"></span>
+      </div>
+      <div class="quiz-progress">
+        <div class="quiz-progress-fill" id="quizProgressFill"></div>
+      </div>
+    </div>
+
+    <div class="block-divider" id="blockDivider">
+      <span class="block-divider-icon">🍷</span>
+      <div>
+        <div class="block-divider-title" id="blockDividerTitle"></div>
+        <div class="block-divider-sub" id="blockDividerSub"></div>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-block-tag" id="qBlockTag"></div>
+      <div class="q-number" id="qNumber"></div>
+      <div class="q-text" id="qText"></div>
+      <div class="options" id="optionsList"></div>
+    </div>
+
+    <div class="feedback-bar" id="feedbackBar">
+      <span class="feedback-icon" id="feedbackIcon"></span>
+      <span id="feedbackText"></span>
+    </div>
+
+    <div class="nav-row">
+      <button class="nav-btn btn-ghost" onclick="goHome()">← Rounds</button>
+      <button class="nav-btn" id="nextBtn" onclick="nextQuestion()" style="display:none"></button>
+    </div>
+    <div class="skip-row">
+      <span class="skip-link" id="skipLink" onclick="skipQuestion()">Skip this question</span>
+    </div>
+  </div>
+
+  <!-- RESULTS SCREEN -->
+  <div class="screen" id="screen-results">
+    <div class="results-container">
+      <div class="results-hero">
+        <span class="results-medal" id="resultsMedal"></span>
+        <h2 class="results-title" id="resultsTitle"></h2>
+        <p class="results-subtitle" id="resultsSubtitle"></p>
+
+        <div class="score-ring">
+          <svg width="140" height="140" viewBox="0 0 140 140">
+            <circle class="score-ring-track" cx="70" cy="70" r="58"/>
+            <circle class="score-ring-fill" id="scoreRingFill" cx="70" cy="70" r="58"
+              stroke-dasharray="364.4"
+              stroke-dashoffset="364.4"/>
+          </svg>
+          <div class="score-label">
+            <span class="score-num" id="scoreNum"></span>
+            <span class="score-denom" id="scoreDenom"></span>
+          </div>
+        </div>
+
+        <div class="block-scores" id="blockScores"></div>
+      </div>
+
+      <div class="results-actions">
+        <button class="nav-btn btn-primary-gold" onclick="retryQuiz()">↺ Retry this round</button>
+        <button class="nav-btn btn-ghost" onclick="goHome()">← Choose round</button>
+      </div>
+
+      <hr class="section-rule">
+
+      <div class="review-list">
+        <h3 class="review-list-title">Review All Answers</h3>
+        <div id="reviewItems"></div>
+      </div>
+    </div>
+  </div>
+
+</main>
+</div>
+
+<script>
+/* ──────────────────────────────────────────────
+   DATA — 90 questions across 3 rounds
+─────────────────────────────────────────────── */
+const BLOCKS = [
+  "Block 1 — 1855 Médoc Classification",
+  "Block 2 — 1855 Sauternes & Barsac",
+  "Block 3 — Graves / Pessac-Léognan",
+  "Block 4 — Médoc Appellations & Geography"
+];
+
+const ROUNDS = [
+  // ═══════════════ ROUND 1 — Qualifier Level ═══════════════
+  [
+    // Block 1 (Q1–10)
+    {block:0,q:"How many châteaux are classified as Deuxièmes Crus in the 1855 Médoc Classification?",opts:["11","12","14"],ans:2},
+    {block:0,q:"Château Mouton Rothschild was elevated from Second to First Growth in 1973. Which government authority officially authorised this promotion?",opts:["The Bordeaux Chamber of Commerce","The French Ministry of Agriculture","The Institut National de l'Origine et de la Qualité (INAO)"],ans:1},
+    {block:0,q:"Which statement best describes Château Haut-Brion's unique position in the 1855 red wine classification?",opts:["It is the only First Growth located in the Haut-Médoc AOC","It is the only First Growth that also produces a classified white wine","It is the only estate classified in 1855 that lies outside the Médoc peninsula, being in Graves"],ans:2},
+    {block:0,q:"Which of the following correctly explains one addition that brought the 1855 list from 58 to 61 châteaux?",opts:["Château Léoville split into Léoville Las Cases, Léoville Barton, and Léoville Poyferré after the French Revolution","Château Pichon-Longueville was split by act of the Bordeaux Négoce","Château Batailley split after a court ruling in 1900"],ans:0},
+    {block:0,q:"What is the second wine of Château Latour?",opts:["Carruades de Latour","Les Forts de Latour","Pavillon Rouge du Château Latour"],ans:1},
+    {block:0,q:"Château Pontet-Canet (5th Growth, Pauillac) became notable in the early 21st century for pioneering which viticultural approach?",opts:["Full organic certification by Ecocert","Biodynamic viticulture, one of the first Médoc classed growths to do so","Introduction of amphorae vinification to replace barrel ageing"],ans:1},
+    {block:0,q:"Château Lafite Rothschild was purchased in 1868 by Baron James de Rothschild, founding which distinct branch of Rothschild Bordeaux ownership?",opts:["Domaines Barons de Rothschild (Lafite), distinct from the Mouton branch","Baron Philippe de Rothschild SA, which also controls Mouton","The Rothschild & Fils Médoc group, encompassing both Lafite and Mouton"],ans:0},
+    {block:0,q:"What is the second wine of Château Margaux?",opts:["Le Petit Mouton","Alter Ego de Palmer","Pavillon Rouge du Château Margaux"],ans:2},
+    {block:0,q:"Château Ducru-Beaucaillou is a Second Growth classified in 1855. In which communal AOC is it located?",opts:["Pauillac","Saint-Julien","Saint-Estèphe"],ans:1},
+    {block:0,q:"How many Premiers Crus are there in the 1855 Médoc red wine classification, including the 1973 promotion of Mouton Rothschild?",opts:["4","5","6"],ans:1},
+    // Block 2 (Q11–18)
+    {block:1,q:"What is the unique official rank of Château d'Yquem in the 1855 Sauternes and Barsac classification?",opts:["Premier Grand Cru Classé","Premier Cru Supérieur","Cru Exceptionnel"],ans:1},
+    {block:1,q:"How many estates are classified as Premiers Crus (excluding d'Yquem) in the 1855 Sauternes and Barsac classification?",opts:["9","11","13"],ans:1},
+    {block:1,q:"In which commune is Château Rieussec, a Premier Cru Sauternes, located?",opts:["Bommes","Preignac","Fargues"],ans:2},
+    {block:1,q:"Château Climens and Château Coutet, both Premiers Crus, are located in Barsac. Which alternative AOC may their wines use?",opts:["They may use either Sauternes or Graves Supérieures AOC","They may use either the Barsac or Sauternes AOC","They may use either the Barsac or Graves Supérieures AOC"],ans:1},
+    {block:1,q:"Château Rieussec has been owned by Domaines Barons de Rothschild (Lafite) since which year?",opts:["1979","1984","1990"],ans:1},
+    {block:1,q:"Which of the following Sauternes châteaux is classified as a Premier Cru and located in the commune of Bommes?",opts:["Château Suduiraut","Château Sigalas Rabaud","Château de Malle"],ans:1},
+    {block:1,q:"The botrytised grapes of Sauternes are harvested in multiple selective passes through the vineyard. What is the French term for each of these individual passes?",opts:["Tries","Vendanges tardives","Tris sélectifs"],ans:0},
+    {block:1,q:"What is the total number of châteaux (at all tiers) in the 1855 Sauternes and Barsac classification?",opts:["25","27","29"],ans:1},
+    // Block 3 (Q19–25)
+    {block:2,q:"The Crus Classés de Graves classification was established in 1953 and finalised in which year?",opts:["1955","1959","1961"],ans:1},
+    {block:2,q:"Unlike the 1855 Médoc classification, the Graves Crus Classés has no internal hierarchy. How are all classified Graves estates officially designated?",opts:["Grand Cru Classé de Graves, without any tier distinction","Premier Cru Classé de Graves, with sub-categories for red and white","Cru Exceptionnel de Graves for top estates, Grand Cru Classé for the rest"],ans:0},
+    {block:2,q:"How many châteaux are classified for BOTH red and white wines in the Graves Crus Classés?",opts:["4","6","8"],ans:1},
+    {block:2,q:"Which of the following estates is classified in the Graves Crus Classés for white wine production only?",opts:["Domaine de Chevalier","Château Laville Haut-Brion","Château Malartic-Lagravière"],ans:1},
+    {block:2,q:"The Pessac-Léognan AOC, within which all Graves Crus Classés châteaux fall, was officially created in which year?",opts:["1983","1987","1991"],ans:1},
+    {block:2,q:"Château Haut-Brion holds the distinction of appearing in two separate official Bordeaux classifications. Which two?",opts:["The 1855 Médoc Classification and the 1855 Sauternes Classification","The 1855 Médoc Classification and the 1959 Graves Crus Classés","The 1959 Graves Crus Classés and the Saint-Émilion Grand Cru Classé"],ans:1},
+    {block:2,q:"Which of the following Graves Crus Classés estates is classified for red wine only (not white)?",opts:["Château Carbonnieux","Château Bouscaut","Château Haut-Bailly"],ans:2},
+    // Block 4 (Q26–30)
+    {block:3,q:"Which two communal AOCs within the Haut-Médoc have no 1855 classified growths?",opts:["Listrac-Médoc and Moulis-en-Médoc","Moulis-en-Médoc and Saint-Estèphe","Listrac-Médoc and Margaux"],ans:0},
+    {block:3,q:"The gravel terraces of the Médoc, which provide excellent drainage for Cabernet Sauvignon, are associated with which geological deposit name?",opts:["Günz gravels","Würm gravels","Mindel gravels"],ans:0},
+    {block:3,q:"Château Cos d'Estournel, a Second Growth, is located in which communal AOC?",opts:["Pauillac","Saint-Estèphe","Saint-Julien"],ans:1},
+    {block:3,q:"Château Palmer (Third Growth) is located in the commune of Cantenac. Under which communal AOC does Cantenac fall?",opts:["Haut-Médoc","Listrac-Médoc","Margaux"],ans:2},
+  ],
+
+  // ═══════════════ ROUND 2 — Semi-Final Level ═══════════════
+  [
+    // Block 1 (Q1–10)
+    {block:0,q:"How many estates are classified as Cinquièmes Crus (Fifth Growths) in the 1855 Médoc Classification?",opts:["16","18","20"],ans:1},
+    {block:0,q:"Château Cantemerle, a Fifth Growth in 1855, is located in the commune of Macau. Under which broader AOC does Macau fall?",opts:["Margaux","Listrac-Médoc","Haut-Médoc"],ans:2},
+    {block:0,q:"The name 'Carruades de Lafite' derives from which feature of the Lafite Rothschild estate?",opts:["A plateau of parcels adjoining the main vineyard, acquired in 1845","An old windmill on the estate that gave it the former name 'Moulin des Carruades'","A lieu-dit within the Pauillac boundary first mapped in 1750"],ans:0},
+    {block:0,q:"Which of the following correctly matches a First Growth château to its second wine?",opts:["Château Latour → Carruades de Latour","Château Mouton Rothschild → Le Petit Mouton","Château Lafite Rothschild → Pavillon Rouge"],ans:1},
+    {block:0,q:"Château Pichon-Longueville was split into two Second Growth châteaux. What was the principal cause of this division?",opts:["A contested sale during the French Revolution","A family inheritance partition between male and female heirs around 1850","A judicial ruling following a boundary dispute with Château Latour"],ans:1},
+    {block:0,q:"Château Pouget (Fourth Growth, Margaux) was formed by the merging of Pouget and which other estate that disappeared from the 1855 list?",opts:["Château Desmirail","Château Pouget-Lassalle","Château Dubignon"],ans:1},
+    {block:0,q:"Which commune is home to the greatest number of Fifth Growth (Cinquième Cru) châteaux in the 1855 classification?",opts:["Saint-Julien","Saint-Estèphe","Pauillac"],ans:2},
+    {block:0,q:"The second wine of Château Latour, Les Forts de Latour, draws primarily from which type of vineyard source?",opts:["The youngest vines within the Enclos, the inner walled vineyard","Plots outside the central Enclos, in surrounding Pauillac vineyards","Purchased grapes from neighbouring Saint-Julien parcels"],ans:1},
+    {block:0,q:"Baron Nathaniel de Rothschild purchased Château Mouton in 1853. His descendant Baron Philippe de Rothschild achieved which historic milestone in 1973?",opts:["He merged Mouton with the Lafite branch of the Rothschild family","He had Mouton elevated from Second to First Growth — the only change to the 1855 classification","He obtained ministerial approval to rename the estate Premier Cru"],ans:1},
+    {block:0,q:"Château d'Armailhac (Fifth Growth, Pauillac) was previously known under which name until 1989?",opts:["Château Mouton-Baronne-Philippe","Château Mouton-d'Armailhac","Château Baron-Philippe"],ans:0},
+    // Block 2 (Q11–18)
+    {block:1,q:"How many estates across both Premiers Crus and Deuxièmes Crus of the 1855 Sauternes classification are located in the commune of Barsac?",opts:["6","8","10"],ans:2},
+    {block:1,q:"Château Suduiraut, a Premier Cru Sauternes whose vineyards border those of d'Yquem, is located in which commune?",opts:["Bommes","Fargues","Preignac"],ans:2},
+    {block:1,q:"Which of the following Sauternes Deuxièmes Crus is located in the commune of Fargues, sharing that commune with Château Rieussec?",opts:["Château Romer du Hayot","Château de Malle","Château Filhot"],ans:0},
+    {block:1,q:"Château Guiraud (Premier Cru, Sauternes) is notable for being which of the following?",opts:["The only Premier Cru Sauternes to produce a dry white under a separate label","The only Premier Cru Sauternes certified organic","The first Premier Cru Sauternes to use 100% Sauvignon Blanc in its grand vin"],ans:1},
+    {block:1,q:"The 1855 Sauternes classification originally covered 26 châteaux. The current count of 27 reflects which change?",opts:["Château de Fargues was added as a Deuxième Cru in 1920","Château Myrat was reinstated after its vines were uprooted in 1976 and replanted in 1988","Château Doisy-Dubroca was split from Doisy-Daëne and added as a separate estate"],ans:1},
+    {block:1,q:"Which Sauternes Premier Cru has historically hosted a school of viticulture and oenology set up by the French Ministry of Agriculture?",opts:["Château Rayne Vigneau","Château La Tour Blanche","Clos Haut-Peyraguey"],ans:1},
+    {block:1,q:"Domaines Barons de Rothschild (Lafite) acquired Château Rieussec in 1984. The second wine of Rieussec carries which name?",opts:["Les Carmes de Rieussec","Clos des Carmes","Carmes de Rieussec"],ans:0},
+    {block:1,q:"Château d'Yquem has declared several 'absent vintages' in which no wine was produced. Which of the following was NOT an absent vintage of d'Yquem?",opts:["1992","2012","1972"],ans:1},
+    // Block 3 (Q19–25)
+    {block:2,q:"Of the 16 châteaux in the 1959 Graves Crus Classés, how many are classified exclusively for their white wine?",opts:["2","3","4"],ans:1},
+    {block:2,q:"Château Laville Haut-Brion was re-labelled under a new name from the 2009 vintage onwards. What is that name?",opts:["Château La Mission Haut-Brion Blanc","Château Haut-Brion Blanc de Laville","Château La Tour Laville Blanc"],ans:0},
+    {block:2,q:"Château La Tour-Haut-Brion, classified for red wine only, produced its last vintage in which year before being absorbed into La Mission Haut-Brion?",opts:["2005","2007","2009"],ans:0},
+    {block:2,q:"Château Pape-Clément takes its name from which historical figure?",opts:["Pope Clement V, who received the estate as a gift in the 13th century","Pope Clement VII, who authorised the Bordeaux wine trade with England","Archbishop Bertrand de Got, who gave the estate to Pope Clement V upon his papal election"],ans:2},
+    {block:2,q:"Which of the following correctly identifies all Graves Crus Classés châteaux located in the commune of Martillac?",opts:["Smith Haut Lafitte and Latour-Martillac","Latour-Martillac and Domaine de Chevalier","Smith Haut Lafitte and Haut-Bailly"],ans:0},
+    {block:2,q:"Which institution owns Château Couhins, classified white-only in the Graves Crus Classés?",opts:["The University of Bordeaux Faculty of Oenology","INRA (National Institute for Agricultural Research)","The Bordeaux Chamber of Agriculture"],ans:1},
+    {block:2,q:"The Pessac-Léognan AOC celebrated its 30th anniversary in September 2017. In which year was the appellation officially created?",opts:["1983","1987","1990"],ans:1},
+    // Block 4 (Q26–30)
+    {block:3,q:"Which of the following appellations within the Haut-Médoc is the smallest by production volume and has no châteaux classified in 1855?",opts:["Moulis-en-Médoc","Saint-Estèphe","Listrac-Médoc"],ans:0},
+    {block:3,q:"Which of the following best describes the Gironde Estuary's moderating effect on the Médoc's climate?",opts:["It causes higher annual rainfall that reduces vine stress during summer","It stores heat and releases it slowly, reducing the risk of spring frost and autumn cold","It channels Atlantic storms away from the vineyards through a natural windbreak"],ans:1},
+    {block:3,q:"Château Lafon-Rochet, a Fourth Growth, is located in which communal AOC?",opts:["Pauillac","Saint-Estèphe","Saint-Julien"],ans:1},
+    {block:3,q:"The best-quality châteaux of the Médoc are classically described as being sited on top of gravel mounds with a view of which body of water?",opts:["The Dordogne River","The Garonne River","The Gironde Estuary"],ans:2},
+  ],
+
+  // ═══════════════ ROUND 3 — Grand Final Level ═══════════════
+  [
+    // Block 1 (Q1–10)
+    {block:0,q:"Château Cantemerle was accidentally omitted from the original 1855 classification document. Who successfully lobbied for its reinstatement and when was it officially added?",opts:["The estate's négociant petitioned the Gironde Chamber of Commerce; added in 1857","Madame Villeneuve-Durfort met with the Union of Brokers in September 1855; added that same year","Baron Nathaniel de Rothschild used his influence at the Paris Exposition; added in 1856"],ans:1},
+    {block:0,q:"The reason Château Cantemerle was left off the original 1855 list relates to how it historically sold its wine. What was that unusual practice?",opts:["It sold exclusively through a single London merchant, bypassing Bordeaux négociants","It sold its entire production directly to the Dutch market, meaning Bordeaux brokers had almost no price records","It bottled and sold exclusively en primeur decades before other estates, making price comparison impossible"],ans:1},
+    {block:0,q:"Baron James de Rothschild purchased Château Lafite at a public auction on 8 August 1868, paying approximately how much?",opts:["2.1 million francs","4.4 million francs","6.8 million francs"],ans:1},
+    {block:0,q:"Just three months after purchasing Château Lafite, Baron James de Rothschild died. The estate passed jointly to his three sons. Which correctly names all three?",opts:["Alphonse, Gustave, and Edmond de Rothschild","Nathan, Gustave, and Edmond de Rothschild","Alphonse, Philippe, and Edmond de Rothschild"],ans:0},
+    {block:0,q:"Château Pichon Longueville Comtesse de Lalande (Second Growth, Pauillac) was acquired in 2007 by the Rouzaud family, owners of which Champagne house?",opts:["Laurent-Perrier","Pol Roger","Louis Roederer"],ans:2},
+    {block:0,q:"At the time of the 1855 classification, only two châteaux are today still in the same family hands as they were in 1855. Which two?",opts:["Château Lafite Rothschild and Château Léoville Barton","Château Mouton Rothschild and Château Léoville Barton","Château Latour and Château Mouton Rothschild"],ans:1},
+    {block:0,q:"The 1855 classification was commissioned for which specific occasion?",opts:["The centenary of the Gironde wine trade, celebrated in Bordeaux","The Universal Exposition in Paris, to showcase French products","The founding of the Commanderie du Bontemps de Médoc"],ans:1},
+    {block:0,q:"The rankings within each growth tier in the 1855 classification were not arranged alphabetically. By what principle were châteaux ordered within each tier?",opts:["By the size of the estate's vineyard surface at the time","By the average selling price of the wine between 1815 and 1855","By the prestige of the owning family as assessed by the brokers"],ans:1},
+    {block:0,q:"According to wine historians, what explains Château Palmer's lower-than-expected ranking in 1855 despite its quality?",opts:["Palmer's wines were little known in Paris, sold mainly to English merchants","The estate was in receivership at the time of the classification, depressing its market price","Palmer had recently changed hands and new owners had not yet established a pricing record"],ans:1},
+    {block:0,q:"Château d'Armailhac has been known by several names under the Rothschild family. Which sequence of name changes is correct?",opts:["Mouton d'Armailhac → Mouton-Baron-Philippe → Mouton-Baronne-Philippe → d'Armailhac","Mouton-Baron-Philippe → Mouton-Baronne-Philippe → Mouton d'Armailhac → d'Armailhac","Mouton d'Armailhac → Mouton-Baronne-Philippe → Mouton-Baron-Philippe → d'Armailhac"],ans:0},
+    // Block 2 (Q11–18)
+    {block:1,q:"Château d'Yquem sits at the highest elevation in the Sauternes appellation. Approximately how many hectares of vines does the estate farm?",opts:["Around 60 hectares","Around 100 hectares","Around 150 hectares"],ans:1},
+    {block:1,q:"The Lur Saluces family acquired Château d'Yquem in 1785. In which year did LVMH complete its acquisition of a controlling interest in the estate?",opts:["1996","1999","2004"],ans:1},
+    {block:1,q:"Château Myrat was a classified Second Growth Barsac. Its vines were entirely uprooted by its owner in 1976. In which year was the estate replanted, allowing it to resume production?",opts:["1982","1985","1988"],ans:2},
+    {block:1,q:"Jacques Sauvage was granted feudal tenure over Yquem in a key historical year. Combined with the Lur Saluces ownership until LVMH's acquisition, approximately how many years was the estate held by these families?",opts:["Approximately 200 years","Approximately 300 years","More than 400 years"],ans:2},
+    {block:1,q:"Château La Tour Blanche (Premier Cru, Bommes) was bequeathed to the French state on the death of its owner Osiris. Which institution currently administers and operates the estate?",opts:["The University of Bordeaux Faculty of Oenology","The French Ministry of Agriculture, which runs it as a school of viticulture and oenology","INRA (National Institute for Agricultural Research)"],ans:1},
+    {block:1,q:"Which of the following is a complete and accurate list of Premier Cru Sauternes estates located in the commune of Bommes?",opts:["La Tour Blanche, Lafaurie-Peyraguey, Clos Haut-Peyraguey, Rayne Vigneau, Rabaud-Promis, Sigalas Rabaud","La Tour Blanche, Lafaurie-Peyraguey, Rayne Vigneau, Guiraud, Rabaud-Promis, Sigalas Rabaud","La Tour Blanche, Clos Haut-Peyraguey, Rayne Vigneau, Climens, Rabaud-Promis, Sigalas Rabaud"],ans:0},
+    {block:1,q:"Château de Fargues 1991 had a peculiarity: its entire harvest was bottled in which unusual format?",opts:["In magnums only, to celebrate the estate's anniversary","In 16-centilitre bottles exclusively","In imperials (6-litre bottles) for auction"],ans:1},
+    {block:1,q:"The first vintage in which Château d'Yquem produced its dry white wine 'Y' (Ygrec) was in:",opts:["1957","1959","1962"],ans:1},
+    // Block 3 (Q19–25)
+    {block:2,q:"The 1953 Graves classification initially listed how many châteaux, before the minor 1959 revision brought the total to the current figure?",opts:["13","16","19"],ans:1},
+    {block:2,q:"Château Pape-Clément is one of Bordeaux's oldest continuously producing estates. Archbishop Bertrand de Got gave the vineyard to Pope Clement V upon his election to the papacy. In which century did this occur?",opts:["12th century","14th century","16th century"],ans:1},
+    {block:2,q:"Château La Tour-Haut-Brion ceased production as a separate label after which vintage, and was subsequently integrated into which wine?",opts:["After the 2005 vintage; integrated into La Mission Haut-Brion's second wine","After the 2006 vintage; integrated into Château Haut-Brion Blanc","After the 2007 vintage; integrated into La Mission Haut-Brion as a blending component"],ans:0},
+    {block:2,q:"Château Haut-Brion's founder Jean de Pontac established the estate in the first half of the 16th century. Which year is most closely associated with the founding of Haut-Brion as a wine estate?",opts:["1521","1533","1550"],ans:1},
+    {block:2,q:"The Pessac-Léognan AOC was created in 1987 largely through the initiative of which individual, who led growers seeking to differentiate the northern Graves?",opts:["Jean-Bernard Delmas, director of Château Haut-Brion","André Lurton, owner of multiple estates including La Louvière","Antony Perrin, owner of Château Carbonnieux"],ans:1},
+    {block:2,q:"Château Smith Haut Lafitte (classified red only, Martillac) is famous beyond wine for which luxury facility on the estate?",opts:["A Michelin-starred restaurant, L'Auberge du Vigneron","A world-renowned wine spa and resort, Les Sources de Caudalie","An art gallery displaying works commissioned by Bordeaux winemakers"],ans:1},
+    {block:2,q:"Château Couhins-Lurton is closely associated with which prominent Bordeaux winemaking family, with the hyphenated name directly referencing that family?",opts:["The Lurton family, descendants of André Lurton","The Dillon family, descendants of Clarence Dillon","The Bernard family, owners of Domaine de Chevalier"],ans:0},
+    // Block 4 (Q26–30)
+    {block:3,q:"Thomas Jefferson visited Bordeaux in 1787 and created his own informal classification. Which statement accurately describes how his list compared to the eventual 1855 official classification?",opts:["He classified wines from both banks, placing Pomerol at the top","He placed what became the First Growths at the top and was the first to classify Médoc wines comprehensively","He identified only three tiers, omitting Graves entirely in favour of Saint-Émilion"],ans:1},
+    {block:3,q:"The Gironde Chamber of Commerce ordered the official 1855 classification on 5 April 1855. Who was its president and which body drew up the classification?",opts:["Duffour-Dubergier was president; the Wine Brokers' Union of Bordeaux drew up the classification","Baron James de Rothschild was honorary president; the Commanderie du Bontemps drew up the list","Napoléon III personally ordered it; the INAO's precursor body drew up the classification"],ans:0},
+    {block:3,q:"The first official Bordeaux classification took place in 1740 for tax purposes. Approximately what proportion of the châteaux in the 1855 classification had already appeared in that 1740 document?",opts:["Around 30%","More than 50%","Around 70%"],ans:1},
+    {block:3,q:"Château Ducru-Beaucaillou (Second Growth, Saint-Julien) is credited with inventing which viticultural treatment in 1878 that became universally used across Bordeaux and beyond?",opts:["The Bordeaux Mixture (copper sulphate and lime fungicide)","Sulphur dusting for powdery mildew","The first systematic use of clonal vine selection"],ans:0},
+    {block:3,q:"Château Gloria in Saint-Julien consists entirely of parcels that were formerly classified in 1855, yet the château itself was not classified. What does this mean in terms of its official standing?",opts:["It is classified as a Cru Bourgeois Exceptionnel precisely because of its classified-parcel provenance","It remains entirely unclassified in 1855 despite consisting of formerly classified-growth vineyards","It was officially added to the 1855 classification in 1973, the same year as Mouton Rothschild's promotion"],ans:1},
+  ]
+];
+
+const LEVEL_NAMES = ["Qualifier Level","Semi-Final Level","Grand Final Level"];
+const LEVEL_COLORS = ["gold","burg","gold"];
+
+/* ──────────────────────────────────────────────
+   STATE
+─────────────────────────────────────────────── */
+let currentRound = 0;
+let currentQIndex = 0;
+let answered = false;
+let userAnswers = [];
+let blockSeenFlags = {};
+
+/* ──────────────────────────────────────────────
+   NAVIGATION
+─────────────────────────────────────────────── */
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('screen-'+id).classList.add('active');
+  document.getElementById('headerProgress').style.display = (id==='quiz')?'block':'none';
+}
+
+function goHome(){
+  showScreen('home');
+}
+
+/* ──────────────────────────────────────────────
+   QUIZ LOGIC
+─────────────────────────────────────────────── */
+function startQuiz(roundIdx){
+  currentRound = roundIdx;
+  currentQIndex = 0;
+  userAnswers = new Array(ROUNDS[roundIdx].length).fill(null);
+  blockSeenFlags = {};
+  showScreen('quiz');
+  renderQuestion();
+}
+
+function retryQuiz(){
+  startQuiz(currentRound);
+}
+
+function renderQuestion(){
+  const qs = ROUNDS[currentRound];
+  const q = qs[currentQIndex];
+  const total = qs.length;
+  answered = false;
+
+  // Header progress
+  const pct = Math.round((currentQIndex/total)*100);
+  document.getElementById('headerProgressFill').style.width = pct+'%';
+
+  // Quiz meta
+  const badge = document.getElementById('quizLevelBadge');
+  badge.textContent = LEVEL_NAMES[currentRound];
+  badge.style.background = currentRound===1 ? 'var(--color-burgundy-highlight)' : 'var(--color-gold-highlight)';
+  badge.style.color = currentRound===1 ? 'var(--color-burgundy)' : 'var(--color-gold)';
+  badge.style.padding = 'var(--space-1) var(--space-3)';
+  badge.style.borderRadius = 'var(--radius-full)';
+  badge.style.fontSize = 'var(--text-xs)';
+  badge.style.fontWeight = '600';
+  badge.style.letterSpacing = '0.08em';
+  badge.style.textTransform = 'uppercase';
+
+  document.getElementById('quizCounter').textContent = `Question ${currentQIndex+1} of ${total}`;
+
+  const fillEl = document.getElementById('quizProgressFill');
+  fillEl.style.width = ((currentQIndex+1)/total*100)+'%';
+  fillEl.className = 'quiz-progress-fill ' + (currentRound===1?'level-2-fill':'level-1-fill');
+
+  // Block divider
+  const divider = document.getElementById('blockDivider');
+  const isNewBlock = !blockSeenFlags[q.block];
+  if(isNewBlock){
+    blockSeenFlags[q.block] = true;
+    document.getElementById('blockDividerTitle').textContent = BLOCKS[q.block];
+    const blockNotes = [
+      "Questions 1–10 · 1855 Médoc Classification",
+      "Questions 11–18 · 1855 Sauternes & Barsac Classification",
+      "Questions 19–25 · Graves / Pessac-Léognan Crus Classés",
+      "Questions 26–30 · Médoc Appellations & Geography"
+    ];
+    document.getElementById('blockDividerSub').textContent = blockNotes[q.block];
+    divider.classList.add('show');
+  } else {
+    divider.classList.remove('show');
+  }
+
+  // Block tag
+  const blockShort = ["1855 Médoc","Sauternes & Barsac","Graves Crus Classés","Médoc Geography"];
+  document.getElementById('qBlockTag').textContent = '📍 ' + blockShort[q.block];
+  document.getElementById('qNumber').textContent = `Q${currentQIndex+1}`;
+  document.getElementById('qText').textContent = q.q;
+
+  // Options
+  const optionsList = document.getElementById('optionsList');
+  optionsList.innerHTML = '';
+  const letters = ['A','B','C'];
+  q.opts.forEach((opt,i)=>{
+    const btn = document.createElement('button');
+    btn.className = 'option-btn';
+    btn.setAttribute('aria-label', `Option ${letters[i]}: ${opt}`);
+    btn.innerHTML = `<span class="option-label">${letters[i]}</span><span class="option-text">${opt}</span>`;
+    btn.onclick = () => selectOption(i);
+    optionsList.appendChild(btn);
+  });
+
+  // Feedback
+  const fb = document.getElementById('feedbackBar');
+  fb.classList.remove('show','correct-fb','wrong-fb');
+
+  // Next btn
+  document.getElementById('nextBtn').style.display = 'none';
+  document.getElementById('skipLink').style.display = 'inline';
+  document.getElementById('skipLink').textContent = 'Skip this question';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function selectOption(chosenIdx){
+  if(answered) return;
+  answered = true;
+  const q = ROUNDS[currentRound][currentQIndex];
+  userAnswers[currentQIndex] = chosenIdx;
+
+  const btns = document.querySelectorAll('.option-btn');
+  btns.forEach((btn,i)=>{
+    btn.classList.add('answered');
+    if(i===q.ans){
+      btn.classList.add('correct');
+    } else if(i===chosenIdx && chosenIdx!==q.ans){
+      btn.classList.add('wrong');
+    } else {
+      btn.classList.add('dimmed');
+    }
+  });
+
+  const fb = document.getElementById('feedbackBar');
+  const isCorrect = chosenIdx===q.ans;
+  fb.classList.add('show', isCorrect?'correct-fb':'wrong-fb');
+  document.getElementById('feedbackIcon').textContent = isCorrect ? '✓' : '✗';
+  document.getElementById('feedbackText').textContent = isCorrect
+    ? 'Correct! Well done.'
+    : `Incorrect. The correct answer was: ${q.opts[q.ans]}`;
+
+  const nextBtn = document.getElementById('nextBtn');
+  nextBtn.style.display = 'inline-flex';
+  nextBtn.className = 'nav-btn ' + (currentRound===1?'btn-primary-burg':'btn-primary-gold');
+  const isLast = currentQIndex === ROUNDS[currentRound].length - 1;
+  nextBtn.textContent = isLast ? 'See Results →' : 'Next Question →';
+  document.getElementById('skipLink').style.display = 'none';
+}
+
+function skipQuestion(){
+  if(answered) return;
+  userAnswers[currentQIndex] = -1; // skipped
+  const q = ROUNDS[currentRound][currentQIndex];
+  const btns = document.querySelectorAll('.option-btn');
+  btns.forEach((btn,i)=>{
+    btn.classList.add('answered','dimmed');
+    if(i===q.ans) btn.classList.add('revealed');
+  });
+  const fb = document.getElementById('feedbackBar');
+  fb.classList.add('show','wrong-fb');
+  document.getElementById('feedbackIcon').textContent = '⟳';
+  document.getElementById('feedbackText').textContent = `Skipped. The correct answer was: ${q.opts[q.ans]}`;
+  answered = true;
+  const nextBtn = document.getElementById('nextBtn');
+  nextBtn.style.display = 'inline-flex';
+  nextBtn.className = 'nav-btn ' + (currentRound===1?'btn-primary-burg':'btn-primary-gold');
+  const isLast = currentQIndex === ROUNDS[currentRound].length - 1;
+  nextBtn.textContent = isLast ? 'See Results →' : 'Next Question →';
+  document.getElementById('skipLink').style.display = 'none';
+}
+
+function nextQuestion(){
+  const total = ROUNDS[currentRound].length;
+  if(currentQIndex < total-1){
+    currentQIndex++;
+    renderQuestion();
+  } else {
+    showResults();
+  }
+}
+
+/* ──────────────────────────────────────────────
+   RESULTS
+─────────────────────────────────────────────── */
+function showResults(){
+  showScreen('results');
+  const qs = ROUNDS[currentRound];
+  const total = qs.length;
+  let correct = 0;
+  const blockCorrect = {};
+  const blockTotal = {};
+
+  qs.forEach((q,i)=>{
+    if(!blockTotal[q.block]) { blockTotal[q.block]=0; blockCorrect[q.block]=0; }
+    blockTotal[q.block]++;
+    if(userAnswers[i]===q.ans){ correct++; blockCorrect[q.block]++; }
+  });
+
+  const pct = correct/total;
+  let medal, titleText, subtitle;
+  if(pct===1){        medal='🏆'; titleText='Flawless — Perfect Score!'; subtitle='Outstanding. You are ready for the Grand Final.'; }
+  else if(pct>=0.85){ medal='🥇'; titleText='Excellent Performance'; subtitle='Grand Final–calibre result. A little more revision and you'll be perfect.'; }
+  else if(pct>=0.70){ medal='🥈'; titleText='Strong Showing'; subtitle='A solid qualifier-level result. Review the missed questions below.'; }
+  else if(pct>=0.50){ medal='🥉'; titleText='Keep Studying'; subtitle='You have the foundation — deeper revision of each classification is needed.'; }
+  else {              medal='📚'; titleText='Back to the Books'; subtitle='Don't be discouraged — revisit the classifications and try again.'; }
+
+  document.getElementById('resultsMedal').textContent = medal;
+  document.getElementById('resultsTitle').textContent = titleText;
+  document.getElementById('resultsSubtitle').textContent = subtitle;
+  document.getElementById('scoreNum').textContent = correct;
+  document.getElementById('scoreDenom').textContent = `/ ${total}`;
+
+  // Animate ring
+  const circumference = 364.4;
+  const ringFill = document.getElementById('scoreRingFill');
+  ringFill.className = 'score-ring-fill ' + (currentRound===1?'burg-ring':'gold-ring');
+  ringFill.style.strokeDashoffset = circumference;
+  setTimeout(()=>{
+    ringFill.style.strokeDashoffset = circumference * (1-pct);
+  }, 100);
+
+  // Block scores
+  const bsContainer = document.getElementById('blockScores');
+  bsContainer.innerHTML = '';
+  const blockNames = ["1855 Médoc","Sauternes","Graves","Geography"];
+  Object.keys(blockTotal).forEach(b=>{
+    const card = document.createElement('div');
+    card.className = 'block-score-card';
+    const bPct = blockCorrect[b]/blockTotal[b];
+    const color = bPct>=0.8 ? 'var(--color-success)' : bPct>=0.5 ? 'var(--color-gold)' : 'var(--color-error)';
+    card.innerHTML = `<div class="bsc-label">${blockNames[b]}</div>
+      <div class="bsc-value" style="color:${color}">${blockCorrect[b]}<span class="bsc-max"> / ${blockTotal[b]}</span></div>`;
+    bsContainer.appendChild(card);
+  });
+
+  // Review list
+  const reviewContainer = document.getElementById('reviewItems');
+  reviewContainer.innerHTML = '';
+  qs.forEach((q,i)=>{
+    const ua = userAnswers[i];
+    const isCorrect = ua===q.ans;
+    const item = document.createElement('div');
+    item.className = 'review-item ' + (isCorrect?'ri-correct':'ri-wrong');
+    const letters = ['A','B','C'];
+    const yourText = ua===-1 ? 'Skipped' : `${letters[ua]}. ${q.opts[ua]}`;
+    item.innerHTML = `
+      <span class="ri-status-icon">${isCorrect?'✓':'✗'}</span>
+      <div class="ri-q">Q${i+1} · ${BLOCKS[q.block].replace(/^Block \d — /,'')}</div>
+      <div class="ri-text">${q.q}</div>
+      <div class="ri-answers">
+        ${!isCorrect ? `<span class="ri-your">Your answer: ${yourText}</span>` : ''}
+        <span class="ri-correct-ans">Correct answer: ${letters[q.ans]}. ${q.opts[q.ans]}</span>
+      </div>`;
+    reviewContainer.appendChild(item);
+  });
+
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ──────────────────────────────────────────────
+   THEME TOGGLE
+─────────────────────────────────────────────── */
+(function(){
+  const t = document.querySelector('[data-theme-toggle]');
+  const r = document.documentElement;
+  let d = 'dark';
+  r.setAttribute('data-theme',d);
+  function setIcon(theme){
+    if(!t) return;
+    t.innerHTML = theme==='dark'
+      ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+      : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  }
+  setIcon(d);
+  t && t.addEventListener('click',()=>{
+    d = d==='dark'?'light':'dark';
+    r.setAttribute('data-theme',d);
+    setIcon(d);
+  });
+})();
+</script>
+</body>
+</html>
