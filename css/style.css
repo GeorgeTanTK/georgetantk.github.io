@@ -168,9 +168,10 @@ nav {
   flex-direction: row-reverse;  /* photo on right */
 }
 .hero-text { flex: 1; }
+
 .hero-portrait { flex-shrink: 0; }
 .portrait {
-  width: 160px; height: 160px;
+  width: 200px; height: 200px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--border);
@@ -179,8 +180,9 @@ nav {
 
 @media (max-width: 768px) {
   .hero-inner { flex-direction: column; }
-  .portrait { width: 100px; height: 100px; }
+  .portrait { width: 150px; height: 150px; }
 }
+
 .hero-location {
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
