@@ -1,110 +1,458 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <title> George Tan | Vector DB </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>George Tan — Technology Architect · Temporal-Vector Databases · HKUST</title>
+  <meta name="description" content="George Tan is a Technology Architect and MPhil candidate at HKUST, building temporal-vector database infrastructure and AI systems for enterprise across Hong Kong and Southeast Asia."/>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="George Tan | Technology Architect · Temporal-Vector Databases · HKUST"/>
+  <meta property="og:description" content="Temporal-vector database research and AI systems for enterprises in Southeast Asia."/>
+  <meta property="og:type" content="website"/>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="css/style.css"/>
+
+  <!-- Inline critical: set theme before paint to prevent flash -->
+  <script>
+    // Default to light mode (for government/enterprise visitors)
+    document.documentElement.setAttribute('data-theme', 'light');
+  </script>
 </head>
 <body>
-  <nav>
-    <a href="#links">Links</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <div class="hero">
-    <img src="portrait.jpg" alt="Professional Portrait" class="portrait">
-    <h1>George Tan 陳柢光</h1>
-    <p>
-      Database Management System (Vector Database) <br>
-      Software Development | Business Development <br>
-      IT Business Analyst | Project Management
-    </p>
-    <a href="#contact"><button class="cta-btn">Get in Touch</button></a>
 
+<!-- ═══════════════════════════════════════════════════════
+     NAV
+     ═══════════════════════════════════════════════════════ -->
+<nav>
+  <a class="nav-logo" href="#">
+    <span class="monogram">GT</span>
+    <span class="name-text">George Tan</span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#ventures">Ventures</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <!-- JS will inject sun/moon icon -->
+    </button>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
   </div>
-  <section id="links">
-    <h2>Links</h2>
-    <div class="links-list" id="links-list"></div>
-  </section>
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Thank you for visiting my page. George here and I am passionate about creating systems that enhance everyday life, simplify challenges, and contribute to a more efficient future. <br>
-      <br>
-      Currently pursuing an MPhil in Computer Science at The Hong Kong University of Science and Technology, with a research focus on Temporal and Vector Databases. In addition to my studies, I serve as a Graduate Teaching Assistant for various computing courses, primarily focusing on the Design and Analysis of Algorithms.<br>
-      <br>
-      Beyond my academic pursuits, I hold the position of Business Development Director at Wellplan Management & Consultant (MM2H) Sdn Bhd, Wellplan Education Sdn Bhd, and Techno Moments Sdn Bhd. In this role, I assist small and medium enterprises (SMEs) in expanding and transforming their operations in the age of artificial intelligence.<br>
-      <br>
-      I completed my undergraduate studies at the same university, where I participated in several consulting projects, including a corporate consulting initiative with ARUP Aviation Hong Kong. Our team proposed the use of Advanced Air Mobility (AAM) to enhance connectivity between airports in the Greater Bay Area, driving the development of an airport cluster.<br>
-      <br>
-      Additionally, I gained valuable experience as a Software Developer Intern at Manulife Investment and Management, where I contributed to the modernization of a legacy system, focusing on data migration and the implementation of a contemporary tech stack. In this role, I also assumed responsibilities as an IT Business Analyst, collaborating with stakeholders to gather requirements and ensure that the technical solutions aligned with business objectives.<br>
-      <br>
-      I welcome any opportunities for collaboration or discussion. Please feel free to reach out.
-    </p>
-  </section>
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="contact-methods">
-      <a class="contact-link whatsapp" href="https://wa.me/85252099890" target="_blank" rel="noopener">
-        WhatsApp (Hong Kong)
-      </a>
-      <a class="contact-link whatsapp" href="https://wa.me/60125176356" target="_blank" rel="noopener">
-        WhatsApp (Malaysia)
-      </a>
-      
-      <div class="wechat-bubble" aria-label="WeChat contact">
-        <div class="wechat-text">
-          <strong>WeChat ID:</strong> gtk_cs
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-location">// technology architect · HKG–KUL–BKI</div>
+
+      <h1>George Tan</h1>
+  
+      <h2>Temporal-Vector Databases.<br>Data &amp; AI Systems for Enterprise.</h2>
+  
+      <p class="hero-body">
+        I design and commercialise data infrastructure that lets organisations
+        query what happened, when it happened, and what it means — simultaneously.
+        Based at HKUST, building across Hong Kong and Southeast Asia.
+      </p>
+  
+      <div class="hero-tags">
+        <span>• Temporal Indexing</span>
+        <span>• Vector Search</span>
+        <!-- <span>• Government Systems</span> -->
+        <span>• AI Automation</span>
+      </div>
+  
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Discuss a Project</a>
+        <a href="#research" class="btn btn-ghost">View Research</a>
+      </div>
+  
+      <div class="hero-availability">// Open to advisory, research collaboration, and project engagements</div>      
+    </div>
+    <div class="hero-portrait">
+      <img src="portrait.jpg" alt="George Tan" class="portrait"/>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     ABOUT
+     ═══════════════════════════════════════════════════════ -->
+<section id="about">
+  <div class="container">
+    <p class="section-label">// about</p>
+    <p class="section-sublabel">Background &amp; Profile</p>
+    <h2 class="section-title">Who I Am</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+        I am a <strong>Technology Architect and entrepreneur</strong> completing an MPhil in Computer Science at HKUST, where my research focuses on temporal database indexing and category-aware vector search. I build systems that answer not just <em>what</em> data means, but <em>when</em> — and I deploy that capability commercially across enterprises in Malaysia and Hong Kong.
+        </p>
+        <p>
+        I direct business development across multiple ventures in Malaysia. TechnoMoments Sdn Bhd is my primary technology vehicle — a MOF-registered and ePerolehan-listed entity spanning AI automation delivery for SMEs. I also hold the position of Business Development Director at Wellplan Management & Consultant (MM2H) Sdn Bhd and Wellplan Education Sdn Bhd, advising SME clients on digital transformation and AI adoption across ASEAN markets.
+        </p>
+        <p>
+        My undergraduate background at HKUST combined Computer Engineering with a Business minor, and my two internships at <strong>Manulife Investment Management (APAC)</strong> gave me the discipline of engineering for production systems at institutional scale. I carry that rigour into every systems and commercial decision.
+        </p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-card">
+          <div class="label">Research Systems</div>
+          <div class="value">2</div>
+          <div class="value-desc">TIDE-Extension · TACO-GANN</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">Active Ventures</div>
+          <div class="value">3+</div>
+          <div class="value-desc">AI, Logistics, Databases</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">Internships</div>
+          <div class="value">2</div>
+          <div class="value-desc">Manulife APAC</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">MPhil Graduation</div>
+          <div class="value">2026</div>
+          <div class="value-desc">HKUST · Computer Science</div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="contact-item email">
-        Email: georgetktan@gmail.com
+<!-- ═══════════════════════════════════════════════════════
+     RESEARCH
+     ═══════════════════════════════════════════════════════ -->
+<section id="research">
+  <div class="container">
+    <p class="section-label">// research</p>
+    <p class="section-sublabel">Research &amp; Publications</p>
+    <h2 class="section-title">Academic Research</h2>
+    <div class="research-cards">
+      <div class="research-card">
+        <span class="tag">Temporal Indexing</span>
+        <h3>TIDE-Extension</h3>
+        <p>
+          A multi-version temporal database index built on a two-tier architecture:
+          a Key-Tree at the top layer, with per-key-range TIDE + Alive List structures
+          at the bottom, using adaptive splitting. Implemented in Rust on the
+          indie-histree codebase, with the MVB-tree as the primary performance
+          benchmark. Designed for workloads requiring efficient point-in-time and
+          interval queries over versioned data.
+        </p>
+        <p class="why-it-matters">
+          Applicable to: government records systems, financial audit trails, and any platform where querying historical state at a precise point in time is a compliance or operational requirement.
+        </p>
+      </div>
+      <div class="research-card">
+        <span class="tag">Vector Search</span>
+        <h3>TACO-GANN</h3>
+        <p>
+          Temporal and Category-aware Approximate Nearest Neighbour Search —
+          a vector index that supports simultaneous timestamp and categorical
+          pre-filtering before similarity scoring. Implemented in Python, TACO-GANN
+          is directly applicable to RAG pipelines, recommendation engines, and
+          any domain where "when" and "what type" constrain the semantic search
+          space. The two systems are complementary and independently deployable.
+        </p>
+        <p class="why-it-matters">
+          Applicable to: RAG pipelines, recommendation engines, and enterprise search where time and category constraints must filter before semantic scoring.
+        </p>
+        <a href="https://github.com/GeorgeTanTK/TACO-GANN" class="github-link" target="_blank" rel="noopener noreferrer">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          View on GitHub
+        </a>
       </div>
     </div>
-  </section>
-  
-  
+  </div>
+</section>
 
+<!-- ═══════════════════════════════════════════════════════
+     VENTURES
+     ═══════════════════════════════════════════════════════ -->
+<section id="ventures">
+  <div class="container">
+    <p class="section-label">// ventures</p>
+    <p class="section-sublabel">Ventures &amp; Products</p>
+    <h2 class="section-title">Ventures &amp; Products</h2>
+    <div class="venture-grid">
 
-  <script>
-    const linksData = [
-      { title: "LinkedIn",desc:"", url: "https://www.linkedin.com/in/georgetktan/", img: "https://cdn-icons-png.flaticon.com/512/174/174857.png" },
-      { title: "MM2H", desc: "Malaysia My Second Home", url: "https://wellplan.com.my/my-second-home-program-mm2h/", img: "Agenis-Pekerjaan-Cosmoten.jpg" },
-      { title: "Wyndham Semporna Resort",desc:"", url: "https://www.wyndhamsempornarealestate.com/", img: "WR_Wyndham-Semporna_fullGold_RGB-01.png" },
-    ];
-    const linksList = document.getElementById('links-list');
-    linksData.forEach(link => {
-      const bubble = document.createElement("a");
-      bubble.className = 'link-bubble';
-      bubble.href = link.url;
-      bubble.target = "_blank";
-      bubble.rel = "noopener noreferrer";
-      bubble.innerHTML = `<img src="${link.img}" class="link-img" alt="${link.title}">
-        <div class="link-title">${link.title}</div>
-        <div class="link-desc">${link.desc}</div>`;
-      linksList.appendChild(bubble);
-    });
-    window.addEventListener('scroll', function() {
-      document.querySelectorAll('section').forEach(function(sec){
-        const rect = sec.getBoundingClientRect();
-        if(rect.top < window.innerHeight - 60){
-          sec.classList.add('visible');
-        }
-      });
-    });
-    document.querySelectorAll('section').forEach(function(sec){ sec.classList.add('visible'); });
-    document.querySelectorAll('nav a').forEach(function(link){
-      link.addEventListener('click', function(e){
-        const href = link.getAttribute('href');
-        if(href.startsWith('#')) {
-          e.preventDefault();
-          const target = document.querySelector(href);
-          if(target) target.scrollIntoView({behavior: 'smooth'});
-        }
-      });
-    });
-  </script>
-</body>
+      <div class="venture-card">
+        <span class="status-badge active">Active</span>
+        <h3>TechnoMoments</h3>
+        <p class="headline">AI automation and technology delivery for Malaysian SMEs and enterprise</p>
+        <p>MMOF-registered and ePerolehan-listed entity through which all technology engagements, tenders, and AI automation projects are structured and delivered in Malaysia. Focus areas: business process automation for SMEs in the Greater Klang Valley.</p>
+      </div>
+
+      <div class="venture-card">
+        <span class="status-badge planning">Formulating</span>
+        <h3>Temporal-Vector Database (TideDB / Vektral)</h3>
+        <p class="headline">The only database that combines temporal indexing with category-aware vector search natively</p>
+        <p>Commercialising TIDE-Extension and TACO-GANN into a unified product that no existing vendor — Pinecone, Qdrant, or TimescaleDB — addresses. Target markets: government data platforms, financial services, and enterprise intelligence.</p>
+      </div>
+
+      <div class="venture-card">
+        <span class="status-badge planning">Surveying</span>
+        <h3>Sabah Logistics Platform</h3>
+        <p class="headline">A private land freight marketplace connecting Sabah's independent truckers with shippers</p>
+        <p>An asset-light platform matching Sabah's highly fragmented independent trucking operators with shippers across the state's key road corridors — serving the hinterland freight routes that feed and fan out from Sabah's major port nodes at Sapangar Bay, Tawau, and Sandakan. The competitive moat is local network trust and corridor-level operational knowledge that no outside platform can acquire.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     TRUST STRIP
+     ═══════════════════════════════════════════════════════ -->
+<div class="trust-strip">
+  <div class="container">
+    <div class="strip-label">// institutional affiliations &amp; engagements</div>
+    <div class="trust-pills">
+      <span class="trust-pill">HKUST</span>
+      <span class="trust-pill">Manulife Investment Management</span>
+      <span class="trust-pill">ARUP Aviation</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     PROJECTS
+     ═══════════════════════════════════════════════════════ -->
+<section id="projects">
+  <div class="container">
+    <p class="section-label">// projects</p>
+    <p class="section-sublabel">Selected Work</p>
+    <h2 class="section-title">Selected Projects</h2>
+
+    <div class="project-card">
+      <div class="project-icon">✈️</div>
+      <div>
+        <h3>Advanced Air Mobility — Greater Bay Area Airport Connectivity</h3>
+        <div class="sub">Corporate Consulting · ARUP Aviation Hong Kong · HKUST</div>
+        <p>
+          Designed a strategic framework for Advanced Air Mobility inter-airport connectivity across the Greater Bay Area, examining airspace management and long-term infrastructure implications for HKUST × ARUP Aviation Hong Kong.
+        </p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">🗄️</div>
+      <div>
+        <h3>TIDE-Extension — Temporal Multi-Version Index</h3>
+        <div class="sub">MPhil Thesis Research · HKUST Database Systems Group</div>
+        <p>
+          Built and benchmarked a two-tier multi-version temporal index in Rust, outperforming the MVB-tree across point-in-time and interval query workloads under varying version densities.
+        </p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">🔍</div>
+      <div>
+        <h3>TACO-GANN — Temporal &amp; Category-Aware Approximate Nearest Neighbour Search</h3>
+        <div class="sub">Independent Research Project · HKUST</div>
+        <p>
+          Implemented a vector search index in Python that pre-filters by timestamp and categorical attributes before scoring — reducing unnecessary comparisons and improving relevance in mixed-constraint retrieval.
+        </p>
+        <a href="https://github.com/GeorgeTanTK/TACO-GANN" class="github-link" target="_blank" rel="noopener noreferrer">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">💼</div>
+      <div>
+        <h3>Enterprise Legacy System Modernisation</h3>
+        <div class="sub">Software Engineer Intern · Manulife Investment Management</div>
+        <p>
+          Led data migration and stack modernisation for Manulife's APAC Global Wealth &amp; Asset Management platform, translating stakeholder requirements into technical specifications across regional teams.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     SKILLS
+     ═══════════════════════════════════════════════════════ -->
+<section id="skills">
+  <div class="container">
+    <p class="section-label">// skills</p>
+    <p class="section-sublabel">Technical Competencies</p>
+    <h2 class="section-title">Capabilities</h2>
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <h4>Systems &amp; Databases</h4>
+        <ul>
+          <li>Temporal Database Indexing</li>
+          <li>Vector Search (ANN)</li>
+          <li>PostgreSQL / TimescaleDB</li>
+          <li>pgvector</li>
+          <li>Rust (systems implementation)</li>
+          <li>Python (research &amp; prototyping)</li>
+        </ul>
+      </div>
+
+      <div class="skill-card">
+        <h4>Engineering &amp; Infrastructure</h4>
+        <ul>
+          <li>NestJS / TypeScript</li>
+          <li>Docker / Kubernetes</li>
+          <li>MyGovCloud deployment</li>
+          <li>CI/CD (GitHub Actions)</li>
+          <li>RESTful API design</li>
+          <li>System benchmarking</li>
+        </ul>
+      </div>
+
+      <div class="skill-card">
+        <h4>Architecture &amp; Business</h4>
+        <ul>
+          <li>Technology Architecture</li>
+          <li>AI Product Development</li>
+          <li>Business Development (ASEAN)</li>
+          <li>Agile / Business Analysis</li>
+          <li>Academic Research &amp; Technical Writing</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     CONTACT
+     ═══════════════════════════════════════════════════════ -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label">// let's build something</p>
+    <p class="section-sublabel">Get In Touch</p>
+    <h2 class="section-title">Work With Me</h2>
+    <p class="contact-body">
+      If you're designing or modernising data and AI infrastructure for enterprise in Southeast Asia — I can help you architect the
+      temporal-vector layer and the strategy around it.
+    </p>
+    <p class="contact-openings">
+      I'm open to: advisory engagements, research collaboration, and investor conversations about TideDB.
+    </p>
+    <div class="contact-actions">
+      <a href="mailto:georgetktan@gmail.com" class="btn btn-primary">Get in Touch</a>
+      <span class="location-line">Based in Hong Kong · Operating across Malaysia &amp; ASEAN</span>
+    </div>
+    <div class="contact-links">
+      <a href="https://www.linkedin.com/in/georgetktan" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://github.com/georgetantk" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
+      <a href="https://wa.me/85252099890" target="_blank" rel="noopener noreferrer">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.528 5.855L.057 23.428a.75.75 0 0 0 .916.916l5.573-1.471A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.5-5.2-1.373l-.373-.22-3.862 1.02 1.02-3.747-.242-.389A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        WhatsApp HK
+      </a>
+      <a href="https://wa.me/60125176356" target="_blank" rel="noopener noreferrer">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.528 5.855L.057 23.428a.75.75 0 0 0 .916.916l5.573-1.471A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.5-5.2-1.373l-.373-.22-3.862 1.02 1.02-3.747-.242-.389A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        WhatsApp MY
+      </a>
+      <!-- <a href="https://scholar.google.com" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Google Scholar
+      </a> -->
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════════ -->
+<footer>
+  <p>© 2026 George Tan · HKG–KUL–BKI</p>
+</footer>
+
+<script src="js/main.js"></script>
+<script data-pplx-inline-edit>
+(function(){
+  if(window===window.top)return;
+  function inlineAll(orig,clone){
+    if(orig.nodeType!==1)return;
+    try{
+      var cs=getComputedStyle(orig);
+      var t='';
+      for(var i=0;i<cs.length;i++){t+=cs[i]+':'+cs.getPropertyValue(cs[i])+';';}
+      clone.style.cssText=t;
+    }catch(e){}
+    var oc=orig.children,cc=clone.children;
+    for(var j=0;j<oc.length&&j<cc.length;j++){inlineAll(oc[j],cc[j]);}
+  }
+  function stripExternal(clone){
+    var imgs=clone.querySelectorAll('img');
+    for(var i=0;i<imgs.length;i++){
+      var s=imgs[i].getAttribute('src');
+      if(s&&!s.startsWith('data:'))imgs[i].removeAttribute('src');
+    }
+    var all=clone.querySelectorAll('*');
+    for(var i=0;i<all.length;i++){
+      var st=all[i].style.cssText;
+      if(st&&st.indexOf('url(')>=0){
+        all[i].style.cssText=st.replace(/url\(["']?(?!data:)[^)"']*["']?\)/gi,'none');
+      }
+    }
+  }
+  window.addEventListener('message',function(e){
+    if(!e.data||e.data.type!=='INLINE_EDIT_CAPTURE_REQUEST')return;
+    var scrollX=window.scrollX||window.pageXOffset||0;
+    var scrollY=window.scrollY||window.pageYOffset||0;
+    var w=window.innerWidth,h=window.innerHeight;
+    try{
+      var clone=document.documentElement.cloneNode(true);
+      var rm=clone.querySelectorAll('script,link[rel="stylesheet"],style');
+      for(var i=0;i<rm.length;i++){rm[i].remove();}
+      inlineAll(document.documentElement,clone);
+      stripExternal(clone);
+      var html=new XMLSerializer().serializeToString(clone);
+      var svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+w+'" height="'+h+'">'
+        +'<foreignObject width="100%" height="100%">'
+        +'<div xmlns="http://www.w3.org/1999/xhtml" style="width:'+w+'px;height:'+h+'px;overflow:hidden">'
+        +'<div style="transform:translate(-'+scrollX+'px,-'+scrollY+'px);transform-origin:top left">'
+        +html+'</div></div></foreignObject></svg>';
+      var svgUrl='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
+      var img=new Image();
+      img.onload=function(){
+        var c=document.createElement('canvas');c.width=w;c.height=h;
+        c.getContext('2d').drawImage(img,0,0);
+        window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:c.toDataURL('image/png'),scrollX:scrollX,scrollY:scrollY},'*');
+      };
+      img.onerror=function(){
+        window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:null,scrollX:scrollX,scrollY:scrollY},'*');
+      };
+      img.src=svgUrl;
+    }catch(err){
+      window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:null,scrollX:scrollX,scrollY:scrollY},'*');
+    }
+  });
+})();
+</script></body>
 </html>
