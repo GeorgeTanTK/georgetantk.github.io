@@ -153,15 +153,14 @@
         <span class="tag">Temporal Indexing</span>
         <h3>TIDE-Extension</h3>
         <p>
-          A multi-version temporal database index built on a two-tier architecture:
-          a Key-Tree at the top layer, with per-key-range TIDE + Alive List structures
-          at the bottom, using adaptive splitting. Implemented in Rust on the
-          indie-histree codebase, with the MVB-tree as the primary performance
-          benchmark. Designed for workloads requiring efficient point-in-time and
-          interval queries over versioned data.
+          TIDE‑Extension
+          A research prototype of a multiversion temporal database index that organises data by both key and time. 
+          The design uses a two‑tier architecture: a Key‑Tree at the top layer, with per‑key‑range temporal structures based on TIDE at the bottom, plus an alive‑list component in the roadmap for handling current records. 
+          Implemented in Rust on the indie‑histree codebase, the current work focuses on disk‑based indexing of historical (dead) versions and is benchmarked against a rebuilt Multiversion B‑tree (MVB‑tree) from the database literature. 
+          It is designed for workloads requiring efficient point‑in‑time and interval queries over versioned data.
         </p>
         <p class="why-it-matters">
-          Applicable to: government records systems, financial audit trails, and any platform where querying historical state at a precise point in time is a compliance or operational requirement.
+          Applicable to: government records systems, financial audit trails, and platforms where querying historical state at a precise point in time is a compliance or operational requirement.
         </p>
       </div>
       <div class="research-card">
@@ -208,7 +207,7 @@
         <span class="status-badge planning">Formulating</span>
         <h3>Temporal-Vector Database (TideDB / Vektral)</h3>
         <p class="headline">The only database that combines temporal indexing with category-aware vector search natively</p>
-        <p>Commercialising experience gained from TIDE-Extension and TACO-GANN project into a unified product that no existing vendor — Pinecone, Qdrant, or TimescaleDB — addresses. Target markets: government data platforms, financial services, and enterprise intelligence.</p>
+        <p>Commercialising experience gained from academia into a unified product that no existing vendor — Pinecone, Qdrant, or TimescaleDB — addresses. Target markets: government data platforms, financial services, and enterprise intelligence.</p>
       </div>
 
       <div class="venture-card">
