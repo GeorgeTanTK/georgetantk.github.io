@@ -14,8 +14,9 @@
   // Moon icon (shown in light mode → click to go dark)
   const moonIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
 
-  // Default to light mode (for government/enterprise visitors); preference persists in-memory
-  let theme = 'light';
+  // Default to light mode (for government/enterprise visitors); a returning
+  // visitor's explicit choice is remembered via localStorage.
+  let theme = localStorage.getItem('theme') || 'light';
   root.setAttribute('data-theme', theme);
   updateIcon(theme);
 
@@ -23,7 +24,7 @@
     toggle.addEventListener('click', function() {
       theme = theme === 'dark' ? 'light' : 'dark';
       root.setAttribute('data-theme', theme);
-      // Theme preference stored in-memory for the session
+      localStorage.setItem('theme', theme);
       updateIcon(theme);
     });
   }
