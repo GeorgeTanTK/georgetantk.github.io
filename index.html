@@ -6,6 +6,9 @@
   <title>George Tan — Technology Architect · Temporal-Vector Databases · HKUST</title>
   <meta name="description" content="George Tan is a Technology Architect and MPhil candidate at HKUST, building temporal-vector database infrastructure and AI systems for enterprise across Hong Kong and Southeast Asia."/>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="rss/favicon.svg"/>
+
   <!-- Open Graph -->
   <meta property="og:title" content="George Tan | Technology Architect · Temporal-Vector Databases · HKUST"/>
   <meta property="og:description" content="Temporal-vector database research and AI systems for enterprises in Southeast Asia."/>
@@ -20,8 +23,8 @@
 
   <!-- Inline critical: set theme before paint to prevent flash -->
   <script>
-    // Default to light mode (for government/enterprise visitors)
-    document.documentElement.setAttribute('data-theme', 'light');
+    // Default to light mode (for government/enterprise visitors); honour a returning visitor's saved choice
+    document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
   </script>
 </head>
 <body>
@@ -58,7 +61,10 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-portrait">
-      <img src="rss/portrait.jpg" alt="George Tan" class="portrait"/>
+      <picture>
+        <source srcset="rss/portrait.webp" type="image/webp"/>
+        <img src="rss/portrait.jpg" alt="George Tan" class="portrait" width="220" height="220"/>
+      </picture>
     </div>
     <div class="hero-text">
       <div class="hero-location">// technology architect · HKG–KUL–BKI</div>
@@ -72,7 +78,7 @@
       <h2>Temporal-Vector Databases.<br>Data &amp; AI Systems for Enterprise.</h2>
   
       <p class="hero-body">
-        I design and commercialise data infrastructure that lets organisations
+        I design and research data infrastructure that lets organisations
         query what happened, when it happened, and what it means — simultaneously.
         Based at HKUST, building across Hong Kong and Southeast Asia.
       </p>
@@ -89,7 +95,7 @@
         <a href="#research" class="btn btn-ghost">View Research</a>
       </div>
   
-      <div class="hero-availability">// Open to advisory, research collaboration, and project engagements</div>      
+      <div class="hero-availability">// Open to research collaboration</div>
     </div>
   </div>
 </section>
@@ -105,13 +111,16 @@
     <div class="about-grid">
       <div class="about-text">
         <p>
-        I am a <strong>Technology Architect and entrepreneur</strong> completing an MPhil in Computer Science at HKUST, where my research focuses on temporal database indexing and category-aware vector search. I build systems that answer not just <em>what</em> data means, but <em>when</em> — and I deploy that capability commercially across enterprises in Malaysia and Hong Kong.
+        I am a <strong>Technology Architect and MPhil researcher</strong> in Computer Science at HKUST, where my work focuses on temporal database indexing and category-aware vector search. I build systems that answer not just <em>what</em> data means, but <em>when</em> — and I apply that capability across enterprises in Malaysia and Hong Kong.
         </p>
         <p>
-        I direct business development across multiple ventures in Malaysia. TechnoMoments Sdn Bhd is my primary technology vehicle — a MOF-registered and ePerolehan-listed entity spanning AI automation delivery for SMEs. I also hold the position of Business Development Director at Wellplan Management & Consultant (MM2H) Sdn Bhd and Wellplan Education Sdn Bhd, advising SME clients on digital transformation and AI adoption across ASEAN markets.
+        I have experience in business development across technology ventures in Malaysia. TechnoMoments Sdn Bhd is a MOF-registered and ePerolehan-listed technology venture focused on AI automation for SMEs. Previously, I served as Business Development Director at Wellplan Management & Consultant (MM2H) Sdn Bhd and Wellplan Education Sdn Bhd, advising SME clients on digital transformation and AI adoption across ASEAN markets.
         </p>
         <p>
         My undergraduate background at HKUST combined Computer Engineering with a Business minor, and my two internships at <strong>Manulife Investment Management (APAC)</strong> gave me the discipline of engineering for production systems at institutional scale. I carry that rigour into every systems and commercial decision.
+        </p>
+        <p>
+        I am currently completing an internship at <strong>LGT Bank (Hong Kong)</strong>, focusing on data and systems within a private banking environment.
         </p>
       </div>
       <div class="about-stats">
@@ -197,7 +206,7 @@
     <div class="venture-grid">
 
       <div class="venture-card">
-        <span class="status-badge active">Active</span>
+        <span class="status-badge active">Active (Malaysia)</span>
         <h3>TechnoMoments</h3>
         <p class="headline">AI automation and technology delivery for Malaysian SMEs and enterprise</p>
         <p>MMOF-registered and ePerolehan-listed entity through which all technology engagements, tenders, and AI automation projects are structured and delivered in Malaysia. Focus areas: business process automation for SMEs in the Greater Klang Valley.</p>
@@ -207,14 +216,14 @@
         <span class="status-badge planning">Formulating</span>
         <h3>Temporal-Vector Database (TideDB / Vektral)</h3>
         <p class="headline">The only database that combines temporal indexing with category-aware vector search natively</p>
-        <p>Commercialising experience gained from academia into a unified product that no existing vendor — Pinecone, Qdrant, or TimescaleDB — addresses. Target markets: government data platforms, financial services, and enterprise intelligence.</p>
+        <p>Exploring a unified temporal-vector database product, informed by academic work, that no existing vendor — Pinecone, Qdrant, or TimescaleDB — addresses. Target use cases: government data platforms, financial services, and enterprise intelligence.</p>
       </div>
 
       <div class="venture-card">
         <span class="status-badge planning">Surveying</span>
         <h3>Sabah Logistics Platform</h3>
         <p class="headline">A private land freight marketplace connecting Sabah's independent truckers with shippers</p>
-        <p>An asset-light platform matching Sabah's highly fragmented independent trucking operators with shippers across the state's key road corridors — serving the hinterland freight routes that feed and fan out from Sabah's major port nodes at Sapangar Bay, Tawau, and Sandakan. The competitive moat is local network trust and corridor-level operational knowledge that no outside platform can acquire.</p>
+        <p>Exploratory: An asset-light platform matching Sabah's highly fragmented independent trucking operators with shippers across the state's key road corridors — serving the hinterland freight routes that feed and fan out from Sabah's major port nodes at Sapangar Bay, Tawau, and Sandakan. The competitive moat is local network trust and corridor-level operational knowledge that no outside platform can acquire.</p>
       </div>
 
     </div>
@@ -229,7 +238,8 @@
     <div class="strip-label">// institutional affiliations &amp; engagements</div>
     <div class="trust-pills">
       <span class="trust-pill">HKUST</span>
-      <span class="trust-pill">Manulife Investment Management</span>
+      <span class="trust-pill">LGT Bank (Hong Kong) (Internship)</span>
+      <span class="trust-pill">Manulife Investment Management (Internship)</span>
       <span class="trust-pill">ARUP Aviation (Coursework Project)</span>
     </div>
   </div>
@@ -353,15 +363,15 @@
     <p class="section-sublabel">Get In Touch</p>
     <h2 class="section-title">Work With Me</h2>
     <p class="contact-body">
-      If you're designing or modernising data and AI infrastructure for enterprise in Southeast Asia — I can help you architect the
+      If you're designing or modernising data and AI infrastructure for enterprise in Southeast Asia — I'm interested in contributing to the
       temporal-vector layer and the strategy around it.
     </p>
     <p class="contact-openings">
-      I'm open to: Advising on AI automation for Southeast Asian enterprise & government · Open to select engagements
+      I'm open to: research collaboration related to temporal-vector databases.
     </p>
     <div class="contact-actions">
       <a href="mailto:georgetktan@gmail.com" class="btn btn-primary">Get in Touch</a>
-      <span class="location-line">Based in Hong Kong · Operating across Malaysia &amp; ASEAN</span>
+      <span class="location-line">Based in Hong Kong · Working on projects across Malaysia &amp; ASEAN</span>
     </div>
     <div class="contact-links">
       <a href="https://www.linkedin.com/in/georgetktan" target="_blank">
